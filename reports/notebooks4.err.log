@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# connect to SQL Server and read data from table iris.arff
+import pyodbc
+import pandas as pd
+
+server = 'LAPTOP-H7SNH2OP\SQLEXPRESS' 
+database = 'prosainsdata200411100066' 
+
+cnxn = pyodbc.connect(r'Driver=ODBC Driver 17 for SQL Server;Server=LAPTOP-H7SNH2OP\SQLEXPRESS;Database=prosainsdata(200411100066);Trusted_Connection=yes;')  
+cursor = cnxn.cursor()
+
+# select 26 rows from SQL table to insert in dataframe.
+query = "SELECT petalwidth,class FROM [prosainsdata(200411100066)].[dbo].[iris.arff]"
+pwcs = pd.read_sql(query, cnxn)
+pwcs = pd.DataFrame(pwcs, columns=['petalwidth','class'])
+pwcs.head()
+------------------
+
+[0;31m[0m
+[0;31mModuleNotFoundError[0mTraceback (most recent call last)
+[0;32m<ipython-input-1-2a733ede61fb>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# connect to SQL Server and read data from table iris.arff[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mimport[0m [0mpyodbc[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mserver[0m [0;34m=[0m [0;34m'LAPTOP-H7SNH2OP\SQLEXPRESS'[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'pyodbc'
+
+[0;31m---------------------------------------------------------------------------[0;32m
+NOTE: If your import is failing due to a missing package, you can
+manually install dependencies using either !pip or !apt.
+
+To view examples of installing some common dependencies, click the
+"Open Examples" button below.
+[0;31m---------------------------------------------------------------------------[0m
+
+ModuleNotFoundError: No module named 'pyodbc'
+
