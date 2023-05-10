@@ -63,7 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks10';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Scrapping Data Comment from Youtube" href="notebooks9.html" />
+    <link rel="prev" title="Sacrapping Data Comment from Youtube" href="notebooks9.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="notebooks6.html">Tugas 3 Crawling Data PTA dengan Label</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks7.html">UTS - Klasifikasi terhadap data abstrak prodi teknik informatika pta.trunojoyo.ac.id dengan menggunakan model klasifikasi naïve bayes dan KNN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks8.html">Tugas Pagerank</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Scrapping Data Comment from Youtube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Sacrapping Data Comment from Youtube</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 5 (LSA Topic Modeling)</a></li>
 </ul>
 
@@ -390,14 +390,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="s1">&#39;https://raw.githubusercontent.com/errjak/dataset/main/datacomment1.csv&#39;</span><span class="p">)</span>
+    <span class="s1">&#39;https://raw.githubusercontent.com/errjak/dataset/main/datacomment.csv&#39;</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5677a46e-81e1-4356-b1d6-051c1f9cf966">
+  <div id="df-2d3ee4af-803d-4628-a283-6c2b4fadae30">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -453,35 +453,35 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>176</th>
-      <td>Semoga Anis Baswedan tidak salah pilih  pasang...</td>
-      <td>semoga anis baswedan tidak salah pilih pasanga...</td>
+      <th>615</th>
+      <td>Kalo pilpres tidak pake sistim degital tetap k...</td>
+      <td>kalo pilpres tidak pakai sistim degital tetap ...</td>
     </tr>
     <tr>
-      <th>177</th>
-      <td>Semoga kang Emil ( Ridwan Kamil ) bisa maju se...</td>
-      <td>semoga kang emil ridwan kamil bisa maju sebaga...</td>
+      <th>616</th>
+      <td>Sapa aja boleh  Asal jgn ganjar dan puan</td>
+      <td>sapa saja boleh asal jangan ganjar dan puan</td>
     </tr>
     <tr>
-      <th>178</th>
-      <td>Yg jelas yg bersih dari kasus korupsi.\ndan ke...</td>
-      <td>yang jelas yang bersih dari kasus korupsi dan ...</td>
+      <th>617</th>
+      <td>3 Mestro Pemimpin Milineal Bangsa Mengubah wuj...</td>
+      <td>mestro pemimpin milineal bangsa mengubah wuju...</td>
     </tr>
     <tr>
-      <th>179</th>
-      <td>Pak Ganjar Pranowo selalu dihati\n Slam dari m...</td>
-      <td>pak ganjar pranowo selalu dihati salam dari ma...</td>
+      <th>618</th>
+      <td>Kalo begitu, PDIp lh yg mau trs berkuasa</td>
+      <td>kalo begitu pdip boleh yang mau terus berkuasa</td>
     </tr>
     <tr>
-      <th>180</th>
-      <td>Pak Mak Ganjar</td>
-      <td>pak mak ganjar</td>
+      <th>619</th>
+      <td>Diakui/tdk pak Anies the best</td>
+      <td>diakui tidak pak anies the best</td>
     </tr>
   </tbody>
 </table>
-<p>181 rows × 2 columns</p>
+<p>620 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-5677a46e-81e1-4356-b1d6-051c1f9cf966')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-2d3ee4af-803d-4628-a283-6c2b4fadae30')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -532,12 +532,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-5677a46e-81e1-4356-b1d6-051c1f9cf966 button.colab-df-convert');
+          document.querySelector('#df-2d3ee4af-803d-4628-a283-6c2b4fadae30 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-5677a46e-81e1-4356-b1d6-051c1f9cf966');
+          const element = document.querySelector('#df-2d3ee4af-803d-4628-a283-6c2b4fadae30');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -614,10 +614,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 0:  [(&#39;ganjar&#39;, 0.521586428314248), (&#39;semoga&#39;, 0.2842380409735716)]
-Topic 1:  [(&#39;ganjar&#39;, 0.5620600231496983), (&#39;pranowo&#39;, 0.3170472243587595)]
-Topic 2:  [(&#39;bendera&#39;, 0.4746399675420368), (&#39;indonesia&#39;, 0.3224328302410677)]
-Topic 3:  [(&#39;rakyat&#39;, 0.4017070040581999), (&#39;dedi&#39;, 0.28485369206481903)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 0:  [(&#39;ganjar&#39;, 0.8015218059291861), (&#39;pranowo&#39;, 0.36082770257748054)]
+Topic 1:  [(&#39;anis&#39;, 0.413051031384759), (&#39;semoga&#39;, 0.3045971614284338)]
+Topic 2:  [(&#39;anis&#39;, 0.6566400399406556), (&#39;baswedan&#39;, 0.16582396810218683)]
+Topic 3:  [(&#39;ridwan&#39;, 0.36563445342632056), (&#39;kamil&#39;, 0.3435899152998)]
 </pre></div>
 </div>
 </div>
@@ -640,7 +640,7 @@ Topic 3:  [(&#39;rakyat&#39;, 0.4017070040581999), (&#39;dedi&#39;, 0.2848536920
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-464e90d6-ec82-4309-b706-4ee094990cb8">
+  <div id="df-abadd1cd-9264-4f92-a50a-bdf35d0ee2d7">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -672,46 +672,46 @@ Topic 3:  [(&#39;rakyat&#39;, 0.4017070040581999), (&#39;dedi&#39;, 0.2848536920
     <tr>
       <th>0</th>
       <td>id skip navigation sign ini ini jagoan pilpres...</td>
-      <td>0.233849</td>
-      <td>-0.059755</td>
-      <td>0.026554</td>
-      <td>0.041615</td>
+      <td>0.144790</td>
+      <td>0.124028</td>
+      <td>-0.032701</td>
+      <td>-0.007515</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>jika masarakat indonesia ingin ketentraman dan...</td>
-      <td>0.088707</td>
-      <td>-0.083820</td>
-      <td>-0.003692</td>
-      <td>0.065046</td>
-      <td>0</td>
+      <td>0.035906</td>
+      <td>0.088829</td>
+      <td>-0.060969</td>
+      <td>-0.048540</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
       <td>kita doakan agar datang pemimpin nasional yang...</td>
-      <td>0.128849</td>
-      <td>-0.057246</td>
-      <td>-0.060337</td>
-      <td>0.067494</td>
-      <td>0</td>
+      <td>0.061446</td>
+      <td>0.139296</td>
+      <td>-0.003784</td>
+      <td>-0.080967</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>semoga kita jangan salah pilih karena menyangk...</td>
-      <td>0.234392</td>
-      <td>-0.274405</td>
-      <td>-0.078864</td>
-      <td>0.009910</td>
-      <td>0</td>
+      <td>0.102839</td>
+      <td>0.238872</td>
+      <td>-0.148766</td>
+      <td>-0.151217</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>ganjar meg di survei anis meg di hati masyarakat</td>
-      <td>0.192530</td>
-      <td>0.102432</td>
-      <td>-0.083612</td>
-      <td>-0.006274</td>
+      <td>0.205925</td>
+      <td>0.114128</td>
+      <td>0.158795</td>
+      <td>-0.034710</td>
       <td>0</td>
     </tr>
     <tr>
@@ -724,55 +724,55 @@ Topic 3:  [(&#39;rakyat&#39;, 0.4017070040581999), (&#39;dedi&#39;, 0.2848536920
       <td>...</td>
     </tr>
     <tr>
-      <th>176</th>
-      <td>semoga anis baswedan tidak salah pilih pasanga...</td>
-      <td>0.177429</td>
-      <td>-0.215891</td>
-      <td>-0.143005</td>
-      <td>-0.076993</td>
+      <th>615</th>
+      <td>kalo pilpres tidak pakai sistim degital tetap ...</td>
+      <td>0.059389</td>
+      <td>0.039647</td>
+      <td>0.018718</td>
+      <td>0.015996</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>177</th>
-      <td>semoga kang emil ridwan kamil bisa maju sebaga...</td>
-      <td>0.300981</td>
-      <td>-0.109957</td>
-      <td>0.200243</td>
-      <td>-0.222943</td>
+      <th>616</th>
+      <td>sapa saja boleh asal jangan ganjar dan puan</td>
+      <td>0.225359</td>
+      <td>-0.075649</td>
+      <td>0.018460</td>
+      <td>-0.001724</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>178</th>
-      <td>yang jelas yang bersih dari kasus korupsi dan ...</td>
-      <td>0.029320</td>
-      <td>-0.008562</td>
-      <td>-0.000133</td>
-      <td>-0.005426</td>
+      <th>617</th>
+      <td>mestro pemimpin milineal bangsa mengubah wuju...</td>
+      <td>0.175757</td>
+      <td>0.174787</td>
+      <td>0.163082</td>
+      <td>0.103083</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>179</th>
-      <td>pak ganjar pranowo selalu dihati salam dari ma...</td>
-      <td>0.358319</td>
-      <td>0.366032</td>
-      <td>-0.040441</td>
-      <td>0.046501</td>
+      <th>618</th>
+      <td>kalo begitu pdip boleh yang mau terus berkuasa</td>
+      <td>0.021236</td>
+      <td>0.024672</td>
+      <td>-0.020208</td>
+      <td>0.011907</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>180</th>
-      <td>pak mak ganjar</td>
-      <td>0.247291</td>
-      <td>0.281673</td>
-      <td>-0.049781</td>
-      <td>0.028452</td>
+      <th>619</th>
+      <td>diakui tidak pak anies the best</td>
+      <td>0.040493</td>
+      <td>0.055038</td>
+      <td>0.022029</td>
+      <td>-0.003984</td>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>181 rows × 6 columns</p>
+<p>620 rows × 6 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-464e90d6-ec82-4309-b706-4ee094990cb8')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-abadd1cd-9264-4f92-a50a-bdf35d0ee2d7')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -823,12 +823,12 @@ Topic 3:  [(&#39;rakyat&#39;, 0.4017070040581999), (&#39;dedi&#39;, 0.2848536920
 
       <script>
         const buttonEl =
-          document.querySelector('#df-464e90d6-ec82-4309-b706-4ee094990cb8 button.colab-df-convert');
+          document.querySelector('#df-abadd1cd-9264-4f92-a50a-bdf35d0ee2d7 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-464e90d6-ec82-4309-b706-4ee094990cb8');
+          const element = document.querySelector('#df-abadd1cd-9264-4f92-a50a-bdf35d0ee2d7');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -856,10 +856,10 @@ Topic 3:  [(&#39;rakyat&#39;, 0.4017070040581999), (&#39;dedi&#39;, 0.2848536920
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    126
-3     26
-1     15
-2     14
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    309
+0    218
+3     56
+2     37
 Name: Topik, dtype: int64
 </pre></div>
 </div>
@@ -905,7 +905,7 @@ Name: Topik, dtype: int64
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Scrapping Data Comment from Youtube</p>
+        <p class="prev-next-title">Sacrapping Data Comment from Youtube</p>
       </div>
     </a>
 </div></div>

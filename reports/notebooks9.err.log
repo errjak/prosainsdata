@@ -88,23 +88,23 @@ with Chrome(executable_path=r'C:\webdrivers\chromedriver.exe') as driver:
 [0m
 [0;31mWebDriverException[0m: Message: unknown error: cannot find Chrome binary
 Stacktrace:
-#0 0x55d32a704133 <unknown>
-#1 0x55d32a438966 <unknown>
-#2 0x55d32a45fb57 <unknown>
-#3 0x55d32a45e07b <unknown>
-#4 0x55d32a49d9ad <unknown>
-#5 0x55d32a49d18f <unknown>
-#6 0x55d32a4949a3 <unknown>
-#7 0x55d32a46946a <unknown>
-#8 0x55d32a46a55e <unknown>
-#9 0x55d32a6c3cae <unknown>
-#10 0x55d32a6c78fe <unknown>
-#11 0x55d32a6d0f20 <unknown>
-#12 0x55d32a6c8923 <unknown>
-#13 0x55d32a69bc0e <unknown>
-#14 0x55d32a6ebb08 <unknown>
-#15 0x55d32a6ebc97 <unknown>
-#16 0x55d32a6fc113 <unknown>
-#17 0x7f08427ec609 start_thread
+#0 0x55da3db28133 <unknown>
+#1 0x55da3d85c966 <unknown>
+#2 0x55da3d883b57 <unknown>
+#3 0x55da3d88207b <unknown>
+#4 0x55da3d8c19ad <unknown>
+#5 0x55da3d8c118f <unknown>
+#6 0x55da3d8b89a3 <unknown>
+#7 0x55da3d88d46a <unknown>
+#8 0x55da3d88e55e <unknown>
+#9 0x55da3dae7cae <unknown>
+#10 0x55da3daeb8fe <unknown>
+#11 0x55da3daf4f20 <unknown>
+#12 0x55da3daec923 <unknown>
+#13 0x55da3dabfc0e <unknown>
+#14 0x55da3db0fb08 <unknown>
+#15 0x55da3db0fc97 <unknown>
+#16 0x55da3db20113 <unknown>
+#17 0x7fefcbad2609 start_thread
 
 
