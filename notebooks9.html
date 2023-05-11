@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sacrapping Data Comment from Youtube &#8212; Prosainsdata</title>
+    <title>Tugas 5 Sacrapping Data Comment from Youtube &#8212; Prosainsdata</title>
   
   
   
@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="notebooks6.html">Tugas 3 Crawling Data PTA dengan Label</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks7.html">UTS - Klasifikasi terhadap data abstrak prodi teknik informatika pta.trunojoyo.ac.id dengan menggunakan model klasifikasi naïve bayes dan KNN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks8.html">Tugas Pagerank</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sacrapping Data Comment from Youtube</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 5 Sacrapping Data Comment from Youtube</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks10.html">Tugas 5 (LSA Topic Modeling)</a></li>
 </ul>
 
@@ -380,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sacrapping Data Comment from Youtube</h1>
+    <h1>Tugas 5 Sacrapping Data Comment from Youtube</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -405,33 +405,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="sacrapping-data-comment-from-youtube">
-<h1>Sacrapping Data Comment from Youtube<a class="headerlink" href="#sacrapping-data-comment-from-youtube" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="tugas-5-sacrapping-data-comment-from-youtube">
+<h1>Tugas 5 Sacrapping Data Comment from Youtube<a class="headerlink" href="#tugas-5-sacrapping-data-comment-from-youtube" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>selenium<span class="w"> </span>--quiet
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.3/6.6 MB</span> <span class=" -Color -Color-Red">9.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/6.6 MB</span> <span class=" -Color -Color-Red">30.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ <span class=" -Color -Color-Green">6.1/6.6 MB</span> <span class=" -Color -Color-Red">57.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">6.5/6.6 MB</span> <span class=" -Color -Color-Red">57.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">6.5/6.6 MB</span> <span class=" -Color -Color-Red">57.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.6/6.6 MB</span> <span class=" -Color -Color-Red">35.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/384.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">384.9/384.9 kB</span> <span class=" -Color -Color-Red">25.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/58.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">58.3/58.3 kB</span> <span class=" -Color -Color-Red">4.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
 </pre></div>
 </div>
 </div>
@@ -524,24 +502,24 @@ document.write(`
 
 <span class="ne">WebDriverException</span>: Message: unknown error: cannot find Chrome binary
 <span class="ne">Stacktrace</span>:
-<span class="c1">#0 0x561d668de133 &lt;unknown&gt;</span>
-<span class="c1">#1 0x561d66612966 &lt;unknown&gt;</span>
-<span class="c1">#2 0x561d66639b57 &lt;unknown&gt;</span>
-<span class="c1">#3 0x561d6663807b &lt;unknown&gt;</span>
-<span class="c1">#4 0x561d666779ad &lt;unknown&gt;</span>
-<span class="c1">#5 0x561d6667718f &lt;unknown&gt;</span>
-<span class="c1">#6 0x561d6666e9a3 &lt;unknown&gt;</span>
-<span class="c1">#7 0x561d6664346a &lt;unknown&gt;</span>
-<span class="c1">#8 0x561d6664455e &lt;unknown&gt;</span>
-<span class="c1">#9 0x561d6689dcae &lt;unknown&gt;</span>
-<span class="c1">#10 0x561d668a18fe &lt;unknown&gt;</span>
-<span class="c1">#11 0x561d668aaf20 &lt;unknown&gt;</span>
-<span class="c1">#12 0x561d668a2923 &lt;unknown&gt;</span>
-<span class="c1">#13 0x561d66875c0e &lt;unknown&gt;</span>
-<span class="c1">#14 0x561d668c5b08 &lt;unknown&gt;</span>
-<span class="c1">#15 0x561d668c5c97 &lt;unknown&gt;</span>
-<span class="c1">#16 0x561d668d6113 &lt;unknown&gt;</span>
-<span class="c1">#17 0x7feaf4f63609 start_thread</span>
+<span class="c1">#0 0x55f421912133 &lt;unknown&gt;</span>
+<span class="c1">#1 0x55f421646966 &lt;unknown&gt;</span>
+<span class="c1">#2 0x55f42166db57 &lt;unknown&gt;</span>
+<span class="c1">#3 0x55f42166c07b &lt;unknown&gt;</span>
+<span class="c1">#4 0x55f4216ab9ad &lt;unknown&gt;</span>
+<span class="c1">#5 0x55f4216ab18f &lt;unknown&gt;</span>
+<span class="c1">#6 0x55f4216a29a3 &lt;unknown&gt;</span>
+<span class="c1">#7 0x55f42167746a &lt;unknown&gt;</span>
+<span class="c1">#8 0x55f42167855e &lt;unknown&gt;</span>
+<span class="c1">#9 0x55f4218d1cae &lt;unknown&gt;</span>
+<span class="c1">#10 0x55f4218d58fe &lt;unknown&gt;</span>
+<span class="c1">#11 0x55f4218def20 &lt;unknown&gt;</span>
+<span class="c1">#12 0x55f4218d6923 &lt;unknown&gt;</span>
+<span class="c1">#13 0x55f4218a9c0e &lt;unknown&gt;</span>
+<span class="c1">#14 0x55f4218f9b08 &lt;unknown&gt;</span>
+<span class="c1">#15 0x55f4218f9c97 &lt;unknown&gt;</span>
+<span class="c1">#16 0x55f42190a113 &lt;unknown&gt;</span>
+<span class="c1">#17 0x7f7cbc8c1609 start_thread</span>
 </pre></div>
 </div>
 </div>
