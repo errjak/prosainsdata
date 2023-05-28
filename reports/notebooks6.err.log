@@ -15,32 +15,48 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-from tqdm.auto import tqdm
-tqdm.pandas()
-
-factory = StemmerFactory()
-stemmer = factory.create_stemmer()
+# jumlah data pada setiap kategori
+df['Kelas'].value_counts()
 ------------------
 
 
 [0;31m[0m
-[0;31mModuleNotFoundError[0mTraceback (most recent call last)
-[0;32m<ipython-input-25-48dc1dbde88b>[0m in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0;31m [0;32mfrom[0m [0mSastrawi[0m[0;34m.[0m[0mStemmer[0m[0;34m.[0m[0mStemmerFactory[0m [0;32mimport[0m [0mStemmerFactory[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;32mfrom[0m [0mtqdm[0m[0;34m.[0m[0mauto[0m [0;32mimport[0m [0mtqdm[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0mtqdm[0m[0;34m.[0m[0mpandas[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0;34m[0m[0m
-[1;32m      5[0m [0mfactory[0m [0;34m=[0m [0mStemmerFactory[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mKeyError[0mTraceback (most recent call last)
+[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3801[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3802[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mcasted_key[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3803[0m             [0;32mexcept[0m [0mKeyError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'Sastrawi'
+[0;32m/usr/local/lib/python3.10/dist-packages/pandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
 
-[0;31m---------------------------------------------------------------------------[0;32m
-NOTE: If your import is failing due to a missing package, you can
-manually install dependencies using either !pip or !apt.
+[0;32m/usr/local/lib/python3.10/dist-packages/pandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
 
-To view examples of installing some common dependencies, click the
-"Open Examples" button below.
-[0;31m---------------------------------------------------------------------------[0m
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
 
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'Kelas'
+
+The above exception was the direct cause of the following exception:
+
+[0;31mKeyError[0mTraceback (most recent call last)
+[0;32m<ipython-input-6-d03060ccb812>[0m in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [0;31m# jumlah data pada setiap kategori[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdf[0m[0;34m[[0m[0;34m'Kelas'[0m[0;34m][0m[0;34m.[0m[0mvalue_counts[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/frame.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   3805[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mcolumns[0m[0;34m.[0m[0mnlevels[0m [0;34m>[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3806[0m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_multilevel[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3807[0;31m             [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mcolumns[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3808[0m             [0;32mif[0m [0mis_integer[0m[0;34m([0m[0mindexer[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3809[0m                 [0mindexer[0m [0;34m=[0m [0;34m[[0m[0mindexer[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3802[0m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mcasted_key[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3803[0m             [0;32mexcept[0m [0mKeyError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3804[0;31m                 [0;32mraise[0m [0mKeyError[0m[0;34m([0m[0mkey[0m[0;34m)[0m [0;32mfrom[0m [0merr[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3805[0m             [0;32mexcept[0m [0mTypeError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3806[0m                 [0;31m# If we have a listlike key, _check_indexing_error will raise[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'Kelas'
 

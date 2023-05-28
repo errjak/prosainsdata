@@ -164,8 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="notebooks6.html">Tugas 3 Crawling Data PTA dengan Label</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS - Klasifikasi terhadap data abstrak prodi teknik informatika pta.trunojoyo.ac.id dengan menggunakan model klasifikasi naïve bayes dan KNN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks8.html">Tugas 4 Pagerank</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 Sacrapping Data Comment from Youtube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks10.html">Tugas 5 (LSA Topic Modeling)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 (LSA Topic Modelling)</a></li>
 </ul>
 
     </div>
@@ -410,50 +409,6 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="uts-klasifikasi-terhadap-data-abstrak-prodi-teknik-informatika-pta-trunojoyo-ac-id-dengan-menggunakan-model-klasifikasi-naive-bayes-dan-knn">
 <h1>UTS - Klasifikasi terhadap data abstrak prodi teknik informatika <a class="reference external" href="http://pta.trunojoyo.ac.id">pta.trunojoyo.ac.id</a> dengan menggunakan model klasifikasi naïve bayes dan KNN<a class="headerlink" href="#uts-klasifikasi-terhadap-data-abstrak-prodi-teknik-informatika-pta-trunojoyo-ac-id-dengan-menggunakan-model-klasifikasi-naive-bayes-dan-knn" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-d5df0069828e&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">120000</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span><span class="w">   </span><span class="sd">&quot;&quot;&quot;Mount your Google Drive at the specified mountpoint path.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">103</span>   <span class="k">return</span> <span class="n">_mount</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">mountpoint</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral, readonly)</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span>   <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">132</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
-<span class="g g-Whitespace">    </span><span class="mi">174</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span>   <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">176</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">96</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>       <span class="k">continue</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">if</span> <span class="p">(</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="load-data">
 <h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -461,14 +416,14 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;drive/MyDrive/prosainsdata/tugas/pta-cleaneddatakelas.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/errjak/dataset/main/pta-cleaneddatakelas.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d5b4dd30-9c91-4382-9640-15aaeae2f43a">
+  <div id="df-390cd233-926b-4387-9387-5d4a0bb78af2">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -551,7 +506,7 @@ document.write(`
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-d5b4dd30-9c91-4382-9640-15aaeae2f43a')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-390cd233-926b-4387-9387-5d4a0bb78af2')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -602,12 +557,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-d5b4dd30-9c91-4382-9640-15aaeae2f43a button.colab-df-convert');
+          document.querySelector('#df-390cd233-926b-4387-9387-5d4a0bb78af2 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-d5b4dd30-9c91-4382-9640-15aaeae2f43a');
+          const element = document.querySelector('#df-390cd233-926b-4387-9387-5d4a0bb78af2');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -719,33 +674,33 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5911949685534591
-[[46  4 29]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6163522012578616
+[[50  4 25]
  [21 10  6]
  [ 4  1 38]]
               precision    recall  f1-score   support
 
-   Komputasi       0.65      0.58      0.61        79
+   Komputasi       0.67      0.63      0.65        79
          NLP       0.67      0.27      0.38        37
-         RPL       0.52      0.88      0.66        43
+         RPL       0.55      0.88      0.68        43
 
-    accuracy                           0.59       159
-   macro avg       0.61      0.58      0.55       159
-weighted avg       0.62      0.59      0.57       159
+    accuracy                           0.62       159
+   macro avg       0.63      0.60      0.57       159
+weighted avg       0.64      0.62      0.60       159
 
-0.6792452830188679
+0.6855345911949685
 [[69  3  7]
- [24  7  6]
- [11  0 32]]
+ [22  9  6]
+ [12  0 31]]
               precision    recall  f1-score   support
 
-   Komputasi       0.66      0.87      0.75        79
-         NLP       0.70      0.19      0.30        37
-         RPL       0.71      0.74      0.73        43
+   Komputasi       0.67      0.87      0.76        79
+         NLP       0.75      0.24      0.37        37
+         RPL       0.70      0.72      0.71        43
 
-    accuracy                           0.68       159
-   macro avg       0.69      0.60      0.59       159
-weighted avg       0.68      0.68      0.64       159
+    accuracy                           0.69       159
+   macro avg       0.71      0.61      0.61       159
+weighted avg       0.70      0.69      0.65       159
 </pre></div>
 </div>
 </div>
@@ -771,8 +726,8 @@ weighted avg       0.68      0.68      0.64       159
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4e18be4a08e7492ccd40c99220708602e2b70fe183b68ee75c876c20808d7c10.png" src="_images/4e18be4a08e7492ccd40c99220708602e2b70fe183b68ee75c876c20808d7c10.png" />
-<img alt="_images/fc0df9bc854111ba31927e310542f7c4a861beff29831b211bab44b44519cd43.png" src="_images/fc0df9bc854111ba31927e310542f7c4a861beff29831b211bab44b44519cd43.png" />
+<img alt="_images/a609409711105a3a6ca63459f743d7293531d51be58af09540ba9b3bf8047f86.png" src="_images/a609409711105a3a6ca63459f743d7293531d51be58af09540ba9b3bf8047f86.png" />
+<img alt="_images/2b677b87347f531b50a2ae3b505db0c14f3dc197f9a5a3b01b531a30ea9c23ef.png" src="_images/2b677b87347f531b50a2ae3b505db0c14f3dc197f9a5a3b01b531a30ea9c23ef.png" />
 </div>
 </div>
 </div>

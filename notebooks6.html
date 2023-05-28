@@ -164,8 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 3 Crawling Data PTA dengan Label</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks7.html">UTS - Klasifikasi terhadap data abstrak prodi teknik informatika pta.trunojoyo.ac.id dengan menggunakan model klasifikasi naïve bayes dan KNN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks8.html">Tugas 4 Pagerank</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 Sacrapping Data Comment from Youtube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks10.html">Tugas 5 (LSA Topic Modeling)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 (LSA Topic Modelling)</a></li>
 </ul>
 
     </div>
@@ -423,14 +422,16 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;ptasudah.xlsx&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df = pd.read_excel(&#39;ptasudah.xlsx&#39;)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/HamedAyani114/dataset/main/csv/Data_PTA_mentah.csv&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0a21b6ad-1969-46fd-b6de-3c9716eebca8">
+  <div id="df-1ffc7ee8-7933-4b0a-aa5f-007cd65f7daf">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -450,58 +451,58 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>NIM</th>
-      <th>Nama</th>
+      <th>NPM</th>
       <th>Judul</th>
       <th>Abstrak</th>
-      <th>Kelas</th>
+      <th>Prodi</th>
+      <th>Label</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>40411100468</td>
-      <td>A.Ubaidillah S.Kom</td>
       <td>PERANCANGAN DAN IMPLEMENTASI SISTEM DATABASE T...</td>
       <td>Sistem  informasi  akademik  (SIAKAD) merupaka...</td>
+      <td>Teknik Informatika</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>1</th>
       <td>40411100476</td>
-      <td>M. Basith Ardianto,</td>
       <td>APLIKASI KONTROL DAN MONITORING JARINGAN KOMPU...</td>
       <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>Teknik Informatika</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>70411100070</td>
-      <td>Heri Supriyanto</td>
-      <td>SISTEM PENDUKUNG KEPUTUSAN OPTIMASI PENJADWALA...</td>
-      <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
-      <td>Komputasi</td>
+      <td>40411100480</td>
+      <td>RANCANG BANGUN APLIKASI PROXY SERVER UNTUKENKR...</td>
+      <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>Teknik Informatika</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>80411100115</td>
-      <td>Septian Rahman Hakim</td>
-      <td>SISTEM AUGMENTED REALITY ANIMASI BENDA BERGERA...</td>
-      <td>Seiring perkembangan teknologi yang ada diduni...</td>
-      <td>Komputasi</td>
+      <td>70411100070</td>
+      <td>SISTEM PENDUKUNG KEPUTUSAN OPTIMASI PENJADWALA...</td>
+      <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
+      <td>Teknik Informatika</td>
+      <td>komputasi</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>70411100007</td>
-      <td>Adi Chandra Laksono</td>
-      <td>Gerak Pekerja Pada Game Real Time Strategy Men...</td>
-      <td>Gerak pekerja ada pada game yang memiliki genr...</td>
-      <td>RPL</td>
+      <td>80411100115</td>
+      <td>SISTEM AUGMENTED REALITY ANIMASI BENDA BERGERA...</td>
+      <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>Teknik Informatika</td>
+      <td>komputasi</td>
     </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-0a21b6ad-1969-46fd-b6de-3c9716eebca8')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-1ffc7ee8-7933-4b0a-aa5f-007cd65f7daf')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -552,12 +553,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-0a21b6ad-1969-46fd-b6de-3c9716eebca8 button.colab-df-convert');
+          document.querySelector('#df-1ffc7ee8-7933-4b0a-aa5f-007cd65f7daf button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-0a21b6ad-1969-46fd-b6de-3c9716eebca8');
+          const element = document.querySelector('#df-1ffc7ee8-7933-4b0a-aa5f-007cd65f7daf');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -585,11 +586,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NIM        0
-Nama       0
-Judul      0
-Abstrak    3
-Kelas      0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NPM         0
+Judul       6
+Abstrak    25
+Prodi       0
+Label      43
 dtype: int64
 </pre></div>
 </div>
@@ -604,11 +605,11 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NIM        0
-Nama       0
-Judul      0
-Abstrak    0
-Kelas      0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NPM         0
+Judul       0
+Abstrak     0
+Prodi       0
+Label      18
 dtype: int64
 </pre></div>
 </div>
@@ -621,11 +622,11 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NIM        795
-Nama       795
-Judul      795
-Abstrak    795
-Kelas      795
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NPM        828
+Judul      828
+Abstrak    828
+Prodi      828
+Label      810
 dtype: int64
 </pre></div>
 </div>
@@ -639,10 +640,44 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Komputasi    417
-RPL          254
-NLP          124
-Name: Kelas, dtype: int64
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyError</span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3801</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3802</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;Kelas&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-d03060ccb812&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># jumlah data pada setiap kategori</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Kelas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3807</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3802</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3804</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span>             <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>                 <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+
+<span class="ne">KeyError</span>: &#39;Kelas&#39;
 </pre></div>
 </div>
 </div>
@@ -658,7 +693,7 @@ Name: Kelas, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/daa61eec43d647ea9e543b02d397aca2a42a1f6822613c8db7f8b69c5b5468eb.png" src="_images/daa61eec43d647ea9e543b02d397aca2a42a1f6822613c8db7f8b69c5b5468eb.png" />
+<img alt="_images/b41464f76b119fd2828c40b16685b6539d68b3ee28280bdeaf4bc2c4e95659d3.png" src="_images/b41464f76b119fd2828c40b16685b6539d68b3ee28280bdeaf4bc2c4e95659d3.png" />
 </div>
 </div>
 </div>
@@ -712,10 +747,7 @@ Name: Kelas, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-9d66bbb5-6bbe-488c-a662-3750b26fb414">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -783,83 +815,7 @@ Name: Kelas, dtype: int64
     </tr>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-9d66bbb5-6bbe-488c-a662-3750b26fb414')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-9d66bbb5-6bbe-488c-a662-3750b26fb414 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-9d66bbb5-6bbe-488c-a662-3750b26fb414');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -923,10 +879,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-476fb3a3-2464-4041-8bee-5a498d2e1b1a">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -954,83 +907,7 @@ dtype: int64
   <tbody>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-476fb3a3-2464-4041-8bee-5a498d2e1b1a')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-476fb3a3-2464-4041-8bee-5a498d2e1b1a button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-476fb3a3-2464-4041-8bee-5a498d2e1b1a');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1040,10 +917,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-784019fc-2b33-4653-8300-51386d52ea80">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1079,83 +953,7 @@ dtype: int64
     </tr>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-784019fc-2b33-4653-8300-51386d52ea80')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-784019fc-2b33-4653-8300-51386d52ea80 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-784019fc-2b33-4653-8300-51386d52ea80');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1168,10 +966,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-276d85ff-136f-45be-bb27-7ea7c9c69883">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1199,83 +994,7 @@ dtype: int64
   <tbody>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-276d85ff-136f-45be-bb27-7ea7c9c69883')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-276d85ff-136f-45be-bb27-7ea7c9c69883 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-276d85ff-136f-45be-bb27-7ea7c9c69883');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1294,7 +1013,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/711ce3d22a4a4bd148fa32c4f00539647e718aaac2908e0ec738a8a68d5adc55.png" src="_images/711ce3d22a4a4bd148fa32c4f00539647e718aaac2908e0ec738a8a68d5adc55.png" />
+<img alt="_images/44c3f90da316b0ed8803660061b1051c625e532e68c4ae9a1e686171b0546e98.png" src="_images/44c3f90da316b0ed8803660061b1051c625e532e68c4ae9a1e686171b0546e98.png" />
 </div>
 </div>
 </div>
@@ -1310,79 +1029,73 @@ dtype: int64
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading collection &#39;popular&#39;
 [nltk_data]    | 
-[nltk_data]    | Downloading package cmudict to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/cmudict.zip.
-[nltk_data]    | Downloading package gazetteers to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/gazetteers.zip.
-[nltk_data]    | Downloading package genesis to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/genesis.zip.
-[nltk_data]    | Downloading package gutenberg to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/gutenberg.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package inaugural to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/inaugural.zip.
+[nltk_data]    | Downloading package cmudict to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package cmudict is already up-to-date!
+[nltk_data]    | Downloading package gazetteers to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package gazetteers is already up-to-date!
+[nltk_data]    | Downloading package genesis to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package genesis is already up-to-date!
+[nltk_data]    | Downloading package gutenberg to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package gutenberg is already up-to-date!
+[nltk_data]    | Downloading package inaugural to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package inaugural is already up-to-date!
 [nltk_data]    | Downloading package movie_reviews to
-[nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/movie_reviews.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package names to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/names.zip.
-[nltk_data]    | Downloading package shakespeare to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/shakespeare.zip.
-[nltk_data]    | Downloading package stopwords to /root/nltk_data...
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package movie_reviews is already up-to-date!
+[nltk_data]    | Downloading package names to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package names is already up-to-date!
+[nltk_data]    | Downloading package shakespeare to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package shakespeare is already up-to-date!
+[nltk_data]    | Downloading package stopwords to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
 [nltk_data]    |   Package stopwords is already up-to-date!
-[nltk_data]    | Downloading package treebank to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/treebank.zip.
+[nltk_data]    | Downloading package treebank to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package treebank is already up-to-date!
 [nltk_data]    | Downloading package twitter_samples to
-[nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/twitter_samples.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package omw to /root/nltk_data...
-[nltk_data]    | Downloading package omw-1.4 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet2021 to /root/nltk_data...
-[nltk_data]    | Downloading package wordnet31 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet_ic to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/wordnet_ic.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package words to /root/nltk_data...
-[nltk_data]    |   Unzipping corpora/words.zip.
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package twitter_samples is already up-to-date!
+[nltk_data]    | Downloading package omw to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package omw is already up-to-date!
+[nltk_data]    | Downloading package omw-1.4 to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package omw-1.4 is already up-to-date!
+[nltk_data]    | Downloading package wordnet to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package wordnet is already up-to-date!
+[nltk_data]    | Downloading package wordnet2021 to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package wordnet2021 is already up-to-date!
+[nltk_data]    | Downloading package wordnet31 to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package wordnet31 is already up-to-date!
+[nltk_data]    | Downloading package wordnet_ic to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package wordnet_ic is already up-to-date!
+[nltk_data]    | Downloading package words to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package words is already up-to-date!
 [nltk_data]    | Downloading package maxent_ne_chunker to
-[nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping chunkers/maxent_ne_chunker.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package punkt to /root/nltk_data...
-[nltk_data]    |   Unzipping tokenizers/punkt.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package snowball_data to
-[nltk_data]    |     /root/nltk_data...
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package maxent_ne_chunker is already up-to-date!
+[nltk_data]    | Downloading package punkt to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package punkt is already up-to-date!
+[nltk_data]    | Downloading package snowball_data to
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package snowball_data is already up-to-date!
 [nltk_data]    | Downloading package averaged_perceptron_tagger to
-[nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping taggers/averaged_perceptron_tagger.zip.
+[nltk_data]    |     C:\Users\Dio\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package averaged_perceptron_tagger is already up-
+[nltk_data]    |       to-date!
 [nltk_data]    | 
 [nltk_data]  Done downloading collection popular
 </pre></div>
@@ -1402,10 +1115,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-79d78143-c2cb-4713-804b-9945ef347aa3">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1455,83 +1165,7 @@ dtype: int64
     </tr>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-79d78143-c2cb-4713-804b-9945ef347aa3')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-79d78143-c2cb-4713-804b-9945ef347aa3 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-79d78143-c2cb-4713-804b-9945ef347aa3');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1542,10 +1176,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-0e65f1f9-4a69-4cbc-9648-2c686976f133">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1595,83 +1226,7 @@ dtype: int64
     </tr>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-0e65f1f9-4a69-4cbc-9648-2c686976f133')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-0e65f1f9-4a69-4cbc-9648-2c686976f133 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-0e65f1f9-4a69-4cbc-9648-2c686976f133');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="stopword-removal">
@@ -1697,10 +1252,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-fa7be561-26f9-4715-be6d-565a2a4acebe">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1750,83 +1302,7 @@ dtype: int64
     </tr>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-fa7be561-26f9-4715-be6d-565a2a4acebe')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-fa7be561-26f9-4715-be6d-565a2a4acebe button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-fa7be561-26f9-4715-be6d-565a2a4acebe');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1835,10 +1311,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-f65395ee-5e53-4cef-8f9c-05d827e09273">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1888,83 +1361,7 @@ dtype: int64
     </tr>
   </tbody>
 </table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-f65395ee-5e53-4cef-8f9c-05d827e09273')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-f65395ee-5e53-4cef-8f9c-05d827e09273 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-f65395ee-5e53-4cef-8f9c-05d827e09273');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="stemming">
@@ -1977,27 +1374,6 @@ dtype: int64
 
 <span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
 <span class="n">stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ModuleNotFoundError</span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-25-48dc1dbde88b&gt;</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">pandas</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;Sastrawi&#39;
-
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NOTE</span>: If your import is failing due to a missing package, you can
-<span class="n">manually</span> <span class="n">install</span> <span class="n">dependencies</span> <span class="n">using</span> <span class="n">either</span> <span class="o">!</span>pip<span class="w"> </span>or<span class="w"> </span>!apt.
-
-<span class="n">To</span> <span class="n">view</span> <span class="n">examples</span> <span class="n">of</span> <span class="n">installing</span> <span class="n">some</span> <span class="n">common</span> <span class="n">dependencies</span><span class="p">,</span> <span class="n">click</span> <span class="n">the</span>
-<span class="s2">&quot;Open Examples&quot;</span> <span class="n">button</span> <span class="n">below</span><span class="o">.</span>
-<span class="gt">---------------------------------------------------------------------------</span>
 </pre></div>
 </div>
 </div>

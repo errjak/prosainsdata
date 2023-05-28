@@ -63,7 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks8';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tugas 5 Sacrapping Data Comment from Youtube" href="notebooks9.html" />
+    <link rel="next" title="Tugas 5 (LSA Topic Modelling)" href="notebooks9.html" />
     <link rel="prev" title="UTS - Klasifikasi terhadap data abstrak prodi teknik informatika pta.trunojoyo.ac.id dengan menggunakan model klasifikasi naïve bayes dan KNN" href="notebooks7.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -164,8 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="notebooks6.html">Tugas 3 Crawling Data PTA dengan Label</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks7.html">UTS - Klasifikasi terhadap data abstrak prodi teknik informatika pta.trunojoyo.ac.id dengan menggunakan model klasifikasi naïve bayes dan KNN</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 4 Pagerank</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 Sacrapping Data Comment from Youtube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks10.html">Tugas 5 (LSA Topic Modeling)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 (LSA Topic Modelling)</a></li>
 </ul>
 
     </div>
@@ -442,7 +441,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ed995cbdd98d3d9cc1701b37cf02b3775fe2bae46f4b46536ae7b446ebc4b2d8.png" src="_images/ed995cbdd98d3d9cc1701b37cf02b3775fe2bae46f4b46536ae7b446ebc4b2d8.png" />
+<img alt="_images/1f3ec4b27367198a66c7eae9e5aba236cc4e39f584ddb82ab43183225da46a15.png" src="_images/1f3ec4b27367198a66c7eae9e5aba236cc4e39f584ddb82ab43183225da46a15.png" />
 </div>
 </div>
 </div>
@@ -521,6 +520,62 @@ document.write(`
 <h2>Implementasi Text Summarization in Python<a class="headerlink" href="#implementasi-text-summarization-in-python" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>PyPDF2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PyPDF2
+  Downloading pypdf2-3.0.1-py3-none-any.whl (232 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/232.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">225.3/232.6 kB</span> <span class=" -Color -Color-Red">7.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">232.6/232.6 kB</span> <span class=" -Color -Color-Red">5.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: PyPDF2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed PyPDF2-3.0.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>docx2txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting docx2txt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading docx2txt-0.8.tar.gz (2.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
+Building wheels for collected packages: docx2txt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for docx2txt (setup.py) ... ?25l?25hdone
+  Created wheel for docx2txt: filename=docx2txt-0.8-py3-none-any.whl size=3957 sha256=ddf8fc9a86bd2e720f5352eb368d86b90c676f8362781cf88160a786b36d729e
+  Stored in directory: /root/.cache/pip/wheels/22/58/cf/093d0a6c3ecfdfc5f6ddd5524043b88e59a9a199cb02352966
+Successfully built docx2txt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: docx2txt
+Successfully installed docx2txt-0.8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">PyPDF2</span>
 <span class="kn">import</span> <span class="nn">docx2txt</span>
@@ -529,27 +584,6 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ModuleNotFoundError</span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-6-3d52926f5104&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">PyPDF2</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">docx2txt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">sys</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">nltk.tokenize.punkt</span> <span class="kn">import</span> <span class="n">PunktSentenceTokenizer</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;PyPDF2&#39;
-
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NOTE</span>: If your import is failing due to a missing package, you can
-<span class="n">manually</span> <span class="n">install</span> <span class="n">dependencies</span> <span class="n">using</span> <span class="n">either</span> <span class="o">!</span>pip<span class="w"> </span>or<span class="w"> </span>!apt.
-
-<span class="n">To</span> <span class="n">view</span> <span class="n">examples</span> <span class="n">of</span> <span class="n">installing</span> <span class="n">some</span> <span class="n">common</span> <span class="n">dependencies</span><span class="p">,</span> <span class="n">click</span> <span class="n">the</span>
-<span class="s2">&quot;Open Examples&quot;</span> <span class="n">button</span> <span class="n">below</span><span class="o">.</span>
-<span class="gt">---------------------------------------------------------------------------</span>
 </pre></div>
 </div>
 </div>
@@ -614,251 +648,141 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">readDoc</span><span class="p">(</span><span class="s2">&quot;berita1.txt&quot;</span><span class="p">)</span>
-<span class="n">sentences_list</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The legnth of the document is: &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">document</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sumy
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The legnth of the document is: 2169
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sumy
+  Downloading sumy-0.11.0-py2.py3-none-any.whl (97 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/97.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">97.3/97.3 kB</span> <span class=" -Color -Color-Red">3.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting docopt&lt;0.7,&gt;=0.6.1 (from sumy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading docopt-0.6.2.tar.gz (25 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
+Collecting breadability&gt;=0.1.20 (from sumy)
+  Downloading breadability-0.1.20.tar.gz (32 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: requests&gt;=2.7.0 in /usr/local/lib/python3.10/dist-packages (from sumy) (2.27.1)
+Collecting pycountry&gt;=18.2.23 (from sumy)
+  Downloading pycountry-22.3.5.tar.gz (10.1 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/10.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.1/10.1 MB</span> <span class=" -Color -Color-Red">33.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.4/10.1 MB</span> <span class=" -Color -Color-Red">92.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">10.1/10.1 MB</span> <span class=" -Color -Color-Red">111.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">10.1/10.1 MB</span> <span class=" -Color -Color-Red">111.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.1/10.1 MB</span> <span class=" -Color -Color-Red">68.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l?25hdone
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Getting requirements to build wheel ... ?25l?25hdone
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (pyproject.toml) ... ?25l?25hdone
+Requirement already satisfied: nltk&gt;=3.0.2 in /usr/local/lib/python3.10/dist-packages (from sumy) (3.8.1)
+Requirement already satisfied: chardet in /usr/local/lib/python3.10/dist-packages (from breadability&gt;=0.1.20-&gt;sumy) (4.0.0)
+Requirement already satisfied: lxml&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from breadability&gt;=0.1.20-&gt;sumy) (4.9.2)
+Requirement already satisfied: click in /usr/local/lib/python3.10/dist-packages (from nltk&gt;=3.0.2-&gt;sumy) (8.1.3)
+Requirement already satisfied: joblib in /usr/local/lib/python3.10/dist-packages (from nltk&gt;=3.0.2-&gt;sumy) (1.2.0)
+Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.10/dist-packages (from nltk&gt;=3.0.2-&gt;sumy) (2022.10.31)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from nltk&gt;=3.0.2-&gt;sumy) (4.65.0)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from pycountry&gt;=18.2.23-&gt;sumy) (67.7.2)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.7.0-&gt;sumy) (1.26.15)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.7.0-&gt;sumy) (2022.12.7)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.7.0-&gt;sumy) (2.0.12)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.7.0-&gt;sumy) (3.4)
+Building wheels for collected packages: breadability, docopt, pycountry
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for breadability (setup.py) ... ?25l?25hdone
+  Created wheel for breadability: filename=breadability-0.1.20-py2.py3-none-any.whl size=21696 sha256=c96fcb3e65ed3385cdf888ab1e2915ae2cabe271397078e37438abd67dfeb4bb
+  Stored in directory: /root/.cache/pip/wheels/64/22/90/b84fcc30e16598db20a0d41340616dbf9b1e82bbcc627b0b33
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for docopt (setup.py) ... ?25l?25hdone
+  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13707 sha256=57dbaafaa9a0b82c4661e534a96a3de2587b1d5cddd31a2f2aa61a06f7350420
+  Stored in directory: /root/.cache/pip/wheels/fc/ab/d4/5da2067ac95b36618c629a5f93f809425700506f72c9732fac
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for pycountry (pyproject.toml) ... ?25l?25hdone
+  Created wheel for pycountry: filename=pycountry-22.3.5-py2.py3-none-any.whl size=10681832 sha256=ce87a1c49dcf740a99b880a089f9f3536068c42f9b7cecd46bf7777f7bdf95bd
+  Stored in directory: /root/.cache/pip/wheels/03/57/cc/290c5252ec97a6d78d36479a3c5e5ecc76318afcb241ad9dbe
+Successfully built breadability docopt pycountry
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: docopt, pycountry, breadability, sumy
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed breadability-0.1.20 docopt-0.6.2 pycountry-22.3.5 sumy-0.11.0
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let us print the size of memory used by the list sentences</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The size of the list in Bytes is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">sumy.parsers.plaintext</span> <span class="kn">import</span> <span class="n">PlaintextParser</span>
+<span class="kn">from</span> <span class="nn">sumy.nlp.tokenizers</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="kn">from</span> <span class="nn">sumy.summarizers.lex_rank</span> <span class="kn">import</span> <span class="n">LexRankSummarizer</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 
-<span class="c1"># the size of one of the element of the list</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The size of the item 0 in Bytes is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The size of the list in Bytes is: 208
-The size of the item 0 in Bytes is: 165
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The size of the list &quot;sentences&quot; is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The size of the list &quot;sentences&quot; is: 19
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sentences_list</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Provinsi Lampung kini ramai dibicarakan usai kritikan dari pemilik akun TikTok @awbimaxreborn viral di media sosial.
-Kritikan itu membuat heboh karena pemilik akun itu menyebut Lampung sebagai Dajjal.
-Pemilik akun bernama Bima Yudho Saputro dalam unggahannya mengungkapkan beberapa alasan mengkritik kampung halamannya itu.
-Salah satunya terkait infrastruktur terbatas dan banyaknya proyek pemerintah yang mangkrak.
-&quot;Contohnya Kota Baru, itu dari jaman gue SD sampai sekarang gue nggak pernah dengar kabarnya lagi.
-Itu aliran dana dari pemerintah pusat ratusan miliar ya bestie dan gue nggak tahu tuh sekarang udah jadi tempat jin buang anak kali,&quot; ucap Bima.
-&quot;Gue sering bahas jalan karena jalan itu kayak infrastruktur yang paling umum dan untuk mobilisasi ekonomi di Lampung, tapi jalan-jalan di Lampung tuh kayak 1 km bagus, 1 km rusak, terus jalan ditempel-tempel doang, ini apa sih, ini pemerintah main ular tangga atau apa,&quot; sambungnya lagi.
-Melansir detikFinance, Lampung yang kini menjadi sorotan karena jalan rusak itu ternyata hanya menganggarkan dana senilai Rp 72.445.048.520 (Rp 72,44 miliar) untuk pemeliharaan jalan.
-Hal ini diketahui dari Peraturan Gubernur Lampung No.
-38 Tahun 2022 Pasal 16 bagian (d).
-Padahal dalam Pasal 8 Pergub yang sama, dijelaskan bahwa anggaran belanja daerah tahun anggaran 2023 prov.
-Lampung direncanakan sebesar Rp 7.381.761.189.686 (Rp 7,38 triliun).
-Artinya Pemprov.
-Lampung hanya mengalokasikan 0,98% anggaran belanja daerahnya untuk keperluan perbaikan jalan.
-Itu pun dananya tidak sepenuhnya digunakan untuk pemeliharaan jalan saja, namun juga digunakan untuk pemeliharaan jaringan dan irigasi.
-Sementara itu untuk 2023 ini Pemprov Lampung telah mengalokasikan sebagian besar anggaran belanjanya untuk keperluan operasional pegawai.
-Dalam Pasal 9 Ayat (2) disebutkan bahwa belanja pegawai sebagaimana dimaksud direncanakan sebesar Rp 2.145.054.774.646,42 (Rp 2,14 triliun).
-Dengan demikian, Lampung mampu menganggarkan Rp 2,14 triliun untuk gaji dan tunjangan PNS-DPRD atau setara dengan 29,05% dari total belanja daerah mereka.
-Sedangkan dana untuk perbaikan jalan hanya dialokasikan sebanyak Rp 72,44 miliar.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
-<span class="n">cv_matrix</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a demo of what CountVectorizer().fit_transform(text) does</span>
-<span class="n">cv_demo</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>  <span class="c1"># a demo object of class CountVectorizer</span>
 
-<span class="c1"># I have repeated the words to make a non-ambiguous array of the document text matrix</span>
+<span class="k">def</span> <span class="nf">readDoc</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
 
-<span class="n">text_demo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ashish is good, you are bad&quot;</span><span class="p">,</span> <span class="s2">&quot;I am not bad&quot;</span><span class="p">]</span>
-<span class="n">res_demo</span> <span class="o">=</span> <span class="n">cv_demo</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">text_demo</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Result demo array is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_demo</span><span class="o">.</span><span class="n">toarray</span><span class="p">()))</span>
+<span class="k">def</span> <span class="nf">summarize_document</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">num_sentences</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">PlaintextParser</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">))</span>
+    <span class="n">summarizer</span> <span class="o">=</span> <span class="n">LexRankSummarizer</span><span class="p">()</span>
+    <span class="n">summary</span> <span class="o">=</span> <span class="n">summarizer</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">document</span><span class="p">,</span> <span class="n">num_sentences</span><span class="p">)</span>
+    <span class="n">summary_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">summary</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">summary_text</span>
 
-<span class="c1"># Result is 2-d matrix containing document text matrix</span>
-<span class="c1"># Notice that in the second row, there is 2.</span>
-<span class="c1"># also, bad is repeated twice in that sentence.</span>
-<span class="c1"># so we can infer that 2 is corresponding to the word &#39;bad&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Feature list: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cv_demo</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result demo array is [[0 1 1 1 1 1 0 1]
- [1 0 0 1 0 0 1 0]]
-Feature list: [&#39;am&#39;, &#39;are&#39;, &#39;ashish&#39;, &#39;bad&#39;, &#39;good&#39;, &#39;is&#39;, &#39;not&#39;, &#39;you&#39;]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\Dio\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
-  warnings.warn(msg, category=FutureWarning)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># printing the cv_matrix type</span>
-<span class="c1"># and how it is being stored in memory?</span>
-<span class="c1"># it is stored in the compressed row format</span>
-<span class="c1"># compressed row format:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The data type of bow matrix </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cv_matrix</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of the matrix </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cv_matrix</span><span class="o">.</span><span class="n">get_shape</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Size of the matrix is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">cv_matrix</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cv_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The data type of bow matrix &lt;class &#39;scipy.sparse._csr.csr_matrix&#39;&gt;
-Shape of the matrix &lt;bound method spmatrix.get_shape of &lt;19x193 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
-	with 290 stored elements in Compressed Sparse Row format&gt;&gt;
-Size of the matrix is: 48
-[&#39;048&#39;, &#39;05&#39;, &#39;054&#39;, &#39;14&#39;, &#39;145&#39;, &#39;16&#39;, &#39;189&#39;, &#39;2022&#39;, &#39;2023&#39;, &#39;29&#39;, &#39;38&#39;, &#39;381&#39;, &#39;42&#39;, &#39;44&#39;, &#39;445&#39;, &#39;520&#39;, &#39;646&#39;, &#39;686&#39;, &#39;72&#39;, &#39;761&#39;, &#39;774&#39;, &#39;98&#39;, &#39;akun&#39;, &#39;alasan&#39;, &#39;aliran&#39;, &#39;anak&#39;, &#39;anggaran&#39;, &#39;apa&#39;, &#39;artinya&#39;, &#39;atau&#39;, &#39;awbimaxreborn&#39;, &#39;ayat&#39;, &#39;bagian&#39;, &#39;bagus&#39;, &#39;bahas&#39;, &#39;bahwa&#39;, &#39;banyaknya&#39;, &#39;baru&#39;, &#39;beberapa&#39;, &#39;belanja&#39;, &#39;belanjanya&#39;, &#39;bernama&#39;, &#39;besar&#39;, &#39;bestie&#39;, &#39;bima&#39;, &#39;buang&#39;, &#39;contohnya&#39;, &#39;daerah&#39;, &#39;daerahnya&#39;, &#39;dajjal&#39;, &#39;dalam&#39;, &#39;dan&#39;, &#39;dana&#39;, &#39;dananya&#39;, &#39;dari&#39;, &#39;demikian&#39;, &#39;dengan&#39;, &#39;dengar&#39;, &#39;detikfinance&#39;, &#39;di&#39;, &#39;dialokasikan&#39;, &#39;dibicarakan&#39;, &#39;digunakan&#39;, &#39;dijelaskan&#39;, &#39;diketahui&#39;, &#39;dimaksud&#39;, &#39;direncanakan&#39;, &#39;disebutkan&#39;, &#39;ditempel&#39;, &#39;doang&#39;, &#39;dprd&#39;, &#39;ekonomi&#39;, &#39;gaji&#39;, &#39;gubernur&#39;, &#39;gue&#39;, &#39;hal&#39;, &#39;halamannya&#39;, &#39;hanya&#39;, &#39;heboh&#39;, &#39;infrastruktur&#39;, &#39;ini&#39;, &#39;irigasi&#39;, &#39;itu&#39;, &#39;jadi&#39;, &#39;jalan&#39;, &#39;jaman&#39;, &#39;jaringan&#39;, &#39;jin&#39;, &#39;juga&#39;, &#39;kabarnya&#39;, &#39;kali&#39;, &#39;kampung&#39;, &#39;karena&#39;, &#39;kayak&#39;, &#39;keperluan&#39;, &#39;kini&#39;, &#39;km&#39;, &#39;kota&#39;, &#39;kritikan&#39;, &#39;lagi&#39;, &#39;lampung&#39;, &#39;main&#39;, &#39;mampu&#39;, &#39;mangkrak&#39;, &#39;media&#39;, &#39;melansir&#39;, &#39;membuat&#39;, &#39;mengalokasikan&#39;, &#39;menganggarkan&#39;, &#39;mengkritik&#39;, &#39;mengungkapkan&#39;, &#39;menjadi&#39;, &#39;menyebut&#39;, &#39;mereka&#39;, &#39;miliar&#39;, &#39;mobilisasi&#39;, &#39;namun&#39;, &#39;nggak&#39;, &#39;no&#39;, &#39;operasional&#39;, &#39;padahal&#39;, &#39;paling&#39;, &#39;pasal&#39;, &#39;pegawai&#39;, &#39;pemeliharaan&#39;, &#39;pemerintah&#39;, &#39;pemilik&#39;, &#39;pemprov&#39;, &#39;peraturan&#39;, &#39;perbaikan&#39;, &#39;pergub&#39;, &#39;pernah&#39;, &#39;pns&#39;, &#39;prov&#39;, &#39;provinsi&#39;, &#39;proyek&#39;, &#39;pun&#39;, &#39;pusat&#39;, &#39;ramai&#39;, &#39;ratusan&#39;, &#39;rp&#39;, &#39;rusak&#39;, &#39;saja&#39;, &#39;salah&#39;, &#39;sama&#39;, &#39;sambungnya&#39;, &#39;sampai&#39;, &#39;saputro&#39;, &#39;satunya&#39;, &#39;sd&#39;, &#39;sebagai&#39;, &#39;sebagaimana&#39;, &#39;sebagian&#39;, &#39;sebanyak&#39;, &#39;sebesar&#39;, &#39;sedangkan&#39;, &#39;sekarang&#39;, &#39;sementara&#39;, &#39;senilai&#39;, &#39;sepenuhnya&#39;, &#39;sering&#39;, &#39;setara&#39;, &#39;sih&#39;, &#39;sorotan&#39;, &#39;sosial&#39;, &#39;tahu&#39;, &#39;tahun&#39;, &#39;tangga&#39;, &#39;tapi&#39;, &#39;telah&#39;, &#39;tempat&#39;, &#39;tempel&#39;, &#39;terbatas&#39;, &#39;terkait&#39;, &#39;ternyata&#39;, &#39;terus&#39;, &#39;tidak&#39;, &#39;tiktok&#39;, &#39;total&#39;, &#39;triliun&#39;, &#39;tuh&#39;, &#39;tunjangan&#39;, &#39;ucap&#39;, &#39;udah&#39;, &#39;ular&#39;, &#39;umum&#39;, &#39;unggahannya&#39;, &#39;untuk&#39;, &#39;usai&#39;, &#39;viral&#39;, &#39;ya&#39;, &#39;yang&#39;, &#39;yudho&#39;]
-[[0 0 0 ... 0 0 0]
- [0 0 0 ... 0 0 0]
- [0 0 0 ... 0 0 1]
- ...
- [0 0 1 ... 0 0 0]
- [0 1 0 ... 0 0 0]
- [0 0 0 ... 0 0 0]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_matrix</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cv_matrix</span><span class="p">)</span>
-<span class="n">res_graph</span> <span class="o">=</span> <span class="n">normal_matrix</span> <span class="o">*</span> <span class="n">normal_matrix</span><span class="o">.</span><span class="n">T</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
-<span class="c1"># plt.spy(res_graph)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         0.         0.         ... 0.         0.         0.        ]
- [0.         0.         0.         ... 0.         0.         0.        ]
- [0.         0.         0.         ... 0.         0.         0.27800354]
- ...
- [0.         0.         0.24236455 ... 0.         0.         0.        ]
- [0.         0.217391   0.         ... 0.         0.         0.        ]
- [0.         0.         0.         ... 0.         0.         0.        ]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_scipy_sparse_array</span><span class="p">(</span><span class="n">res_graph</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranks</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">nx_graph</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_array</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(((</span><span class="n">ranks</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">sentence_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sentence_array</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rank_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sentence_array</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">rank_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sentence_array</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence_array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rank max :&#39;</span><span class="p">,</span><span class="n">rank_max</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rank min :&#39;</span><span class="p">,</span><span class="n">rank_min</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/errjak/dataset/main/berita1.txt&quot;</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">readDoc</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">document</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">summary</span> <span class="o">=</span> <span class="n">summarize_document</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The length of the document is:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">document</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Summary:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
 
-<span class="n">temp_array</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Simpan ringkasan ke file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ringkasan.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
 
-<span class="c1"># if all sentences have equal ranks, means they are all the same</span>
-<span class="c1"># taking any sentence will give the summary, say the first sentence</span>
-<span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">if</span> <span class="n">rank_max</span> <span class="o">-</span> <span class="n">rank_min</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">temp_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="c1"># If the sentence has different ranks</span>
-<span class="k">if</span> <span class="n">flag</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence_array</span><span class="p">)):</span>
-        <span class="n">temp_array</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">sentence_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">rank_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">rank_max</span> <span class="o">-</span> <span class="n">rank_min</span><span class="p">))</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">temp_array</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp_array</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.2</span>
-<span class="n">sentence_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp_array</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp_array</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">temp_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
-                <span class="n">sentence_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ringkasan telah disimpan dalam file &quot;ringkasan.txt&quot;&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">sentence_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence_array</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp_array</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Failed to retrieve the document.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rank max : 0.06880698646516402
-rank min : 0.04295776214872579
-19
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># summary = &quot; &quot;.join(str(x) for x in sentence_list)</span>
-<span class="c1"># print(summary)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melansir detikFinance, Lampung yang kini menjadi sorotan karena jalan rusak itu ternyata hanya menganggarkan dana senilai Rp 72.445.048.520 (Rp 72,44 miliar) untuk pemeliharaan jalan.
-Sementara itu untuk 2023 ini Pemprov Lampung telah mengalokasikan sebagian besar anggaran belanjanya untuk keperluan operasional pegawai.
-Lampung hanya mengalokasikan 0,98% anggaran belanja daerahnya untuk keperluan perbaikan jalan.
-&quot;Gue sering bahas jalan karena jalan itu kayak infrastruktur yang paling umum dan untuk mobilisasi ekonomi di Lampung, tapi jalan-jalan di Lampung tuh kayak 1 km bagus, 1 km rusak, terus jalan ditempel-tempel doang, ini apa sih, ini pemerintah main ular tangga atau apa,&quot; sambungnya lagi.
-Sedangkan dana untuk perbaikan jalan hanya dialokasikan sebanyak Rp 72,44 miliar.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The length of the document is: 2169
+Summary:
+Kritikan itu membuat heboh karena pemilik akun itu menyebut Lampung sebagai Dajjal. Melansir detikFinance, Lampung yang kini menjadi sorotan karena jalan rusak itu ternyata hanya menganggarkan dana senilai Rp 72.445.048.520 (Rp 72,44 miliar) untuk pemeliharaan jalan. Padahal dalam Pasal 8 Pergub yang sama, dijelaskan bahwa anggaran belanja daerah tahun anggaran 2023 prov.
+Ringkasan telah disimpan dalam file &quot;ringkasan.txt&quot;
 </pre></div>
 </div>
 </div>
@@ -911,7 +835,7 @@ Sedangkan dana untuk perbaikan jalan hanya dialokasikan sebanyak Rp 72,44 miliar
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tugas 5 Sacrapping Data Comment from Youtube</p>
+        <p class="prev-next-title">Tugas 5 (LSA Topic Modelling)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

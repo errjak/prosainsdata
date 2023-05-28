@@ -164,8 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="notebooks6.html">Tugas 3 Crawling Data PTA dengan Label</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks7.html">UTS - Klasifikasi terhadap data abstrak prodi teknik informatika pta.trunojoyo.ac.id dengan menggunakan model klasifikasi naïve bayes dan KNN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks8.html">Tugas 4 Pagerank</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 Sacrapping Data Comment from Youtube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks10.html">Tugas 5 (LSA Topic Modeling)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 (LSA Topic Modelling)</a></li>
 </ul>
 
     </div>
@@ -429,42 +428,21 @@ document.write(`
 <h3>SQL Server (petalwidth,class)<a class="headerlink" href="#sql-server-petalwidth-class" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect to SQL Server and read data from table iris.arff</span>
-<span class="kn">import</span> <span class="nn">pyodbc</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # connect to SQL Server and read data from table iris.arff</span>
+<span class="c1"># import pyodbc</span>
+<span class="c1"># import pandas as pd</span>
 
-<span class="n">server</span> <span class="o">=</span> <span class="s1">&#39;LAPTOP-H7SNH2OP\SQLEXPRESS&#39;</span> 
-<span class="n">database</span> <span class="o">=</span> <span class="s1">&#39;prosainsdata200411100066&#39;</span> 
+<span class="c1"># server = &#39;LAPTOP-H7SNH2OP\SQLEXPRESS&#39; </span>
+<span class="c1"># database = &#39;prosainsdata200411100066&#39; </span>
 
-<span class="n">cnxn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Driver=ODBC Driver 17 for SQL Server;Server=LAPTOP-H7SNH2OP\SQLEXPRESS;Database=prosainsdata(200411100066);Trusted_Connection=yes;&#39;</span><span class="p">)</span>  
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">cnxn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="c1"># cnxn = pyodbc.connect(r&#39;Driver=ODBC Driver 17 for SQL Server;Server=LAPTOP-H7SNH2OP\SQLEXPRESS;Database=prosainsdata(200411100066);Trusted_Connection=yes;&#39;)  </span>
+<span class="c1"># cursor = cnxn.cursor()</span>
 
-<span class="c1"># select 26 rows from SQL table to insert in dataframe.</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT petalwidth,class FROM [prosainsdata(200411100066)].[dbo].[iris.arff]&quot;</span>
-<span class="n">pwcs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">cnxn</span><span class="p">)</span>
-<span class="n">pwcs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pwcs</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;petalwidth&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">])</span>
-<span class="n">pwcs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ModuleNotFoundError</span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-2a733ede61fb&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># connect to SQL Server and read data from table iris.arff</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pyodbc</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">server</span> <span class="o">=</span> <span class="s1">&#39;LAPTOP-H7SNH2OP\SQLEXPRESS&#39;</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pyodbc&#39;
-
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NOTE</span>: If your import is failing due to a missing package, you can
-<span class="n">manually</span> <span class="n">install</span> <span class="n">dependencies</span> <span class="n">using</span> <span class="n">either</span> <span class="o">!</span>pip<span class="w"> </span>or<span class="w"> </span>!apt.
-
-<span class="n">To</span> <span class="n">view</span> <span class="n">examples</span> <span class="n">of</span> <span class="n">installing</span> <span class="n">some</span> <span class="n">common</span> <span class="n">dependencies</span><span class="p">,</span> <span class="n">click</span> <span class="n">the</span>
-<span class="s2">&quot;Open Examples&quot;</span> <span class="n">button</span> <span class="n">below</span><span class="o">.</span>
-<span class="gt">---------------------------------------------------------------------------</span>
+<span class="c1"># # select 26 rows from SQL table to insert in dataframe.</span>
+<span class="c1"># query = &quot;SELECT petalwidth,class FROM [prosainsdata(200411100066)].[dbo].[iris.arff]&quot;</span>
+<span class="c1"># pwcs = pd.read_sql(query, cnxn)</span>
+<span class="c1"># pwcs = pd.DataFrame(pwcs, columns=[&#39;petalwidth&#39;,&#39;class&#39;])</span>
+<span class="c1"># pwcs.head()</span>
 </pre></div>
 </div>
 </div>
@@ -474,232 +452,124 @@ document.write(`
 <h3>Postgres (sepallength)<a class="headerlink" href="#postgres-sepallength" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect to PostgreSQL and read data from table iris.arff</span>
-<span class="kn">import</span> <span class="nn">psycopg2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # connect to PostgreSQL and read data from table iris.arff</span>
+<span class="c1"># import psycopg2</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;prosainsdata(200411100066)&quot;</span><span class="p">,</span>
-    <span class="n">user</span><span class="o">=</span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;1234&quot;</span><span class="p">,</span>
-    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-    <span class="n">port</span><span class="o">=</span><span class="s2">&quot;5432&quot;</span>
-<span class="p">)</span>
+<span class="c1"># conn = psycopg2.connect(</span>
+<span class="c1">#     database=&quot;prosainsdata(200411100066)&quot;,</span>
+<span class="c1">#     user=&quot;postgres&quot;,</span>
+<span class="c1">#     password=&quot;1234&quot;,</span>
+<span class="c1">#     host=&quot;localhost&quot;,</span>
+<span class="c1">#     port=&quot;5432&quot;</span>
+<span class="c1"># )</span>
 
-<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="c1"># cur = conn.cursor()</span>
 
-<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT sepallength FROM iris_arff&quot;</span><span class="p">)</span>
+<span class="c1"># cur.execute(&quot;SELECT sepallength FROM iris_arff&quot;)</span>
 
-<span class="n">rows</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="c1"># rows = cur.fetchall()</span>
 
-<span class="n">sl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepallength&#39;</span><span class="p">])</span>
-<span class="n">sl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># sl = pd.DataFrame(rows, columns=[&#39;sepallength&#39;])</span>
+<span class="c1"># sl.head()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepallength</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5.1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4.9</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.6</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 <div class="section" id="elephantsql-sepalwidth">
 <h3>ElephantSQL (sepalwidth)<a class="headerlink" href="#elephantsql-sepalwidth" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect elephantsql and read data from table iris.arff</span>
-<span class="kn">import</span> <span class="nn">psycopg2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # connect elephantsql and read data from table iris.arff</span>
+<span class="c1"># import psycopg2</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mpbecome&quot;</span><span class="p">,</span>
-    <span class="n">user</span><span class="o">=</span><span class="s2">&quot;mpbecome&quot;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;qJrkkEHbBQhzOh5rwG0vL_T-6qVzLrJE&quot;</span><span class="p">,</span>
-    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;satao.db.elephantsql.com&quot;</span><span class="p">,</span>
-    <span class="n">port</span><span class="o">=</span><span class="s2">&quot;5432&quot;</span>
-<span class="p">)</span>
+<span class="c1"># conn = psycopg2.connect(</span>
+<span class="c1">#     database=&quot;mpbecome&quot;,</span>
+<span class="c1">#     user=&quot;mpbecome&quot;,</span>
+<span class="c1">#     password=&quot;qJrkkEHbBQhzOh5rwG0vL_T-6qVzLrJE&quot;,</span>
+<span class="c1">#     host=&quot;satao.db.elephantsql.com&quot;,</span>
+<span class="c1">#     port=&quot;5432&quot;</span>
+<span class="c1"># )</span>
 
-<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="c1"># cur = conn.cursor()</span>
 
-<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT sepalwidth FROM iris&quot;</span><span class="p">)</span>
+<span class="c1"># cur.execute(&quot;SELECT sepalwidth FROM iris&quot;)</span>
 
-<span class="n">rows</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="c1"># rows = cur.fetchall()</span>
 
-<span class="n">sw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepalwidth&#39;</span><span class="p">])</span>
-<span class="n">sw</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># sw = pd.DataFrame(rows, columns=[&#39;sepalwidth&#39;])</span>
+<span class="c1"># sw.head()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepalwidth</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3.5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3.2</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3.1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>3.6</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 <div class="section" id="xampp-petallength">
 <h3>XAMPP (petallength)<a class="headerlink" href="#xampp-petallength" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect to the localhost xaamp server</span>
-<span class="kn">import</span> <span class="nn">mysql.connector</span>
-<span class="n">mydb</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
-    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="n">database</span><span class="o">=</span><span class="s1">&#39;prosainsdata(200411100066)&#39;</span>
-<span class="p">)</span>
-<span class="n">mycursor</span> <span class="o">=</span> <span class="n">mydb</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # connect to the localhost xaamp server</span>
+<span class="c1"># import mysql.connector</span>
+<span class="c1"># mydb = mysql.connector.connect(</span>
+<span class="c1">#     host=&#39;localhost&#39;,</span>
+<span class="c1">#     user=&#39;root&#39;,</span>
+<span class="c1">#     password=&#39;&#39;,</span>
+<span class="c1">#     database=&#39;prosainsdata(200411100066)&#39;</span>
+<span class="c1"># )</span>
+<span class="c1"># mycursor = mydb.cursor()</span>
 
-<span class="c1"># select 26 rows from SQL table to insert in dataframe.</span>
-<span class="n">mycursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT petallength FROM iris_arff&quot;</span><span class="p">)</span>
-<span class="n">myresult</span> <span class="o">=</span> <span class="n">mycursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="c1"># # select 26 rows from SQL table to insert in dataframe.</span>
+<span class="c1"># mycursor.execute(&quot;SELECT petallength FROM iris_arff&quot;)</span>
+<span class="c1"># myresult = mycursor.fetchall()</span>
 
-<span class="n">pl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">myresult</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;petallength&#39;</span><span class="p">])</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># pl = pd.DataFrame(myresult, columns=[&#39;petallength&#39;])</span>
+<span class="c1"># pl.head()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>petallength</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1.4</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.3</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1.5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.4</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/HamedAyani114/dataset/main/csv/Iris.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sl</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s2">&quot;SepalLengthCm&quot;</span><span class="p">]</span>
+<span class="n">sw</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s2">&quot;SepalWidthCm&quot;</span><span class="p">]</span>
+<span class="n">pl</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s2">&quot;PetalLengthCm&quot;</span><span class="p">]</span>
+<span class="n">pwcs</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s2">&quot;PetalWidthCm&quot;</span><span class="p">]</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s2">&quot;Species&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="setelah-mengambil-fitur-dan-target-dari-berbagai-sumber-maka-langkah-selanjutnya-yaitu-menggabungkan-fitur-dan-target-kedalam-satu-kolom">
 <h3>Setelah mengambil fitur dan target dari berbagai sumber maka langkah selanjutnya yaitu menggabungkan fitur dan target kedalam satu kolom<a class="headerlink" href="#setelah-mengambil-fitur-dan-target-dari-berbagai-sumber-maka-langkah-selanjutnya-yaitu-menggabungkan-fitur-dan-target-kedalam-satu-kolom" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sl</span><span class="p">,</span> <span class="n">sw</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span> <span class="n">pwcs</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sl</span><span class="p">,</span> <span class="n">sw</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span> <span class="n">pwcs</span><span class="p">,</span> <span class="n">spec</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">iris_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-999a39a1-2240-4517-a21d-8c0d228a085c">
+    <div class="colab-df-container">
+      <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -717,11 +587,11 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>sepallength</th>
-      <th>sepalwidth</th>
-      <th>petallength</th>
-      <th>petalwidth</th>
-      <th>class</th>
+      <th>SepalLengthCm</th>
+      <th>SepalWidthCm</th>
+      <th>PetalLengthCm</th>
+      <th>PetalWidthCm</th>
+      <th>Species</th>
     </tr>
   </thead>
   <tbody>
@@ -736,7 +606,7 @@ document.write(`
     <tr>
       <th>1</th>
       <td>4.9</td>
-      <td>3</td>
+      <td>3.0</td>
       <td>1.4</td>
       <td>0.2</td>
       <td>Iris-setosa</td>
@@ -767,7 +637,83 @@ document.write(`
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-999a39a1-2240-4517-a21d-8c0d228a085c')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-999a39a1-2240-4517-a21d-8c0d228a085c button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-999a39a1-2240-4517-a21d-8c0d228a085c');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
 </div>
 </div>
 <div class="section" id="selanjutnya-kita-menyimpan-per-fitur-untuk-proses-upload-kedalam-orchest">
@@ -794,38 +740,38 @@ document.write(`
 <h3>get_data.py<a class="headerlink" href="#get-data-py" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">orchest</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="c1"># from sklearn import datasets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import orchest</span>
+<span class="c1"># import pandas as pd</span>
+<span class="c1"># # from sklearn import datasets</span>
 
-<span class="c1"># Explicitly cache the data in the &quot;/data&quot; directory since the</span>
-<span class="c1"># kernel is running in a Docker container, which are stateless.</span>
-<span class="c1"># The &quot;/data&quot; directory is a special directory managed by Orchest</span>
-<span class="c1"># to allow data to be persisted and shared across pipelines and</span>
-<span class="c1"># even projects.</span>
-<span class="c1"># print(&quot;Dowloading California housing data...&quot;)</span>
-<span class="c1"># data = datasets.fetch_california_housing(data_home=&quot;/data&quot;)</span>
-<span class="n">pl</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dataset/pl_iris.csv&#39;</span><span class="p">)</span>
-<span class="n">sl</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dataset/sl_iris.csv&#39;</span><span class="p">)</span>
-<span class="n">sw</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dataset/sw_iris.csv&#39;</span><span class="p">)</span>
-<span class="n">pwcs</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dataset/pwcs_iris.csv&#39;</span><span class="p">)</span>
+<span class="c1"># # Explicitly cache the data in the &quot;/data&quot; directory since the</span>
+<span class="c1"># # kernel is running in a Docker container, which are stateless.</span>
+<span class="c1"># # The &quot;/data&quot; directory is a special directory managed by Orchest</span>
+<span class="c1"># # to allow data to be persisted and shared across pipelines and</span>
+<span class="c1"># # even projects.</span>
+<span class="c1"># # print(&quot;Dowloading California housing data...&quot;)</span>
+<span class="c1"># # data = datasets.fetch_california_housing(data_home=&quot;/data&quot;)</span>
+<span class="c1"># pl=pd.read_csv(&#39;dataset/pl_iris.csv&#39;)</span>
+<span class="c1"># sl=pd.read_csv(&#39;dataset/sl_iris.csv&#39;)</span>
+<span class="c1"># sw=pd.read_csv(&#39;dataset/sw_iris.csv&#39;)</span>
+<span class="c1"># pwcs=pd.read_csv(&#39;dataset/pwcs_iris.csv&#39;)</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sl</span><span class="p">,</span> <span class="n">sw</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span> <span class="n">pwcs</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># data = pd.concat([sl, sw, pl, pwcs], axis=1)</span>
 
-<span class="c1"># Convert the data into a DataFrame.</span>
-<span class="c1"># df_data = pd.DataFrame(data[&quot;data&quot;], columns=data[&quot;feature_names&quot;])</span>
-<span class="c1"># df_target = pd.DataFrame(data[&quot;target&quot;], columns=[&quot;MedHouseVal&quot;])</span>
-<span class="c1"># fitur</span>
-<span class="n">df_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="c1"># target</span>
-<span class="n">df_target</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="c1"># # Convert the data into a DataFrame.</span>
+<span class="c1"># # df_data = pd.DataFrame(data[&quot;data&quot;], columns=data[&quot;feature_names&quot;])</span>
+<span class="c1"># # df_target = pd.DataFrame(data[&quot;target&quot;], columns=[&quot;MedHouseVal&quot;])</span>
+<span class="c1"># # fitur</span>
+<span class="c1"># df_data = data.iloc[:, :-1]</span>
+<span class="c1"># # target</span>
+<span class="c1"># df_target = data.iloc[:, 4]</span>
 
-<span class="c1"># Output the housing data so the next steps can retrieve it.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outputting converted &quot;</span><span class="p">)</span>
-<span class="n">orchest</span><span class="o">.</span><span class="n">output</span><span class="p">((</span><span class="n">df_data</span><span class="p">,</span> <span class="n">df_target</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">)</span>
+<span class="c1"># # Output the housing data so the next steps can retrieve it.</span>
+<span class="c1"># print(&quot;Outputting converted &quot;)</span>
+<span class="c1"># orchest.output((df_data, df_target), name=&quot;data&quot;)</span>
+<span class="c1"># print(&quot;Success!&quot;)</span>
 
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># data.head()</span>
 </pre></div>
 </div>
 </div>
@@ -835,17 +781,17 @@ document.write(`
 <h3>split_data<a class="headerlink" href="#split-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">orchest</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="c1"># from sklearn.preprocessing import MinMaxScaler</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">orchest</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">()</span> 
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
-<span class="c1"># scaler = MinMaxScaler()</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1"># X_train = scaler.fit_transform(X_train)</span>
-<span class="c1"># X_test = scaler.transform(X_test)</span>
-<span class="n">orchest</span><span class="o">.</span><span class="n">output</span><span class="p">((</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;training_data&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import orchest</span>
+<span class="c1"># from sklearn.model_selection import train_test_split</span>
+<span class="c1"># from sklearn.pipeline import Pipeline</span>
+<span class="c1"># # from sklearn.preprocessing import MinMaxScaler</span>
+<span class="c1"># data = orchest.get_inputs() </span>
+<span class="c1"># X, y = data[&quot;data&quot;]</span>
+<span class="c1"># # scaler = MinMaxScaler()</span>
+<span class="c1"># X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,random_state=0)</span>
+<span class="c1"># # X_train = scaler.fit_transform(X_train)</span>
+<span class="c1"># # X_test = scaler.transform(X_test)</span>
+<span class="c1"># orchest.output((X_train, y_train, X_test, y_test), name=&quot;training_data&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -855,20 +801,20 @@ document.write(`
 <h3>knn<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">orchest</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="c1"># Retrieve the data from the previous step.</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">orchest</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">()</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;training_data&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import orchest</span>
+<span class="c1"># from sklearn.neighbors import KNeighborsClassifier</span>
+<span class="c1"># from sklearn.metrics import mean_squared_error</span>
+<span class="c1"># # Retrieve the data from the previous step.</span>
+<span class="c1"># data = orchest.get_inputs()</span>
+<span class="c1"># X_train, y_train, X_test, y_test = data[&quot;training_data&quot;]</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">test_accracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">orchest</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">test_accracy</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;KNeighborsClassifier&quot;</span><span class="p">)</span>
+<span class="c1"># model = KNeighborsClassifier(n_neighbors = 15)</span>
+<span class="c1"># model.fit(X_train, y_train)</span>
+<span class="c1"># from sklearn.metrics import accuracy_score</span>
+<span class="c1"># y_pred = model.predict(X_test)</span>
+<span class="c1"># test_accracy = accuracy_score(y_test, y_pred)</span>
+<span class="c1"># orchest.output(test_accracy, name=&quot;KNeighborsClassifier&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -878,20 +824,20 @@ document.write(`
 <h3>naive_bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">orchest</span>
-<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="c1"># Retrieve the data from the previous step.</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">orchest</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">()</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;training_data&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import orchest</span>
+<span class="c1"># from sklearn.naive_bayes import GaussianNB</span>
+<span class="c1"># from sklearn.metrics import mean_squared_error</span>
+<span class="c1"># # Retrieve the data from the previous step.</span>
+<span class="c1"># data = orchest.get_inputs()</span>
+<span class="c1"># X_train, y_train, X_test, y_test = data[&quot;training_data&quot;]</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">test_accracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">orchest</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">test_accracy</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GaussianNB&quot;</span><span class="p">)</span>
+<span class="c1"># model = GaussianNB()</span>
+<span class="c1"># model.fit(X_train, y_train)</span>
+<span class="c1"># from sklearn.metrics import accuracy_score</span>
+<span class="c1"># y_pred = model.predict(X_test)</span>
+<span class="c1"># test_accracy = accuracy_score(y_test, y_pred)</span>
+<span class="c1"># orchest.output(test_accracy, name=&quot;GaussianNB&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -901,20 +847,20 @@ document.write(`
 <h3>logistigreq<a class="headerlink" href="#logistigreq" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">orchest</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="c1"># Retrieve the data from the previous step.</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">orchest</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">()</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;training_data&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import orchest</span>
+<span class="c1"># from sklearn.linear_model import LogisticRegression</span>
+<span class="c1"># from sklearn.metrics import mean_squared_error</span>
+<span class="c1"># # Retrieve the data from the previous step.</span>
+<span class="c1"># data = orchest.get_inputs()</span>
+<span class="c1"># X_train, y_train, X_test, y_test = data[&quot;training_data&quot;]</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">test_accracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">orchest</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">test_accracy</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;logistic-regression-accuracy&quot;</span><span class="p">)</span>
+<span class="c1"># model = LogisticRegression()</span>
+<span class="c1"># model.fit(X_train, y_train)</span>
+<span class="c1"># from sklearn.metrics import accuracy_score</span>
+<span class="c1"># y_pred = model.predict(X_test)</span>
+<span class="c1"># test_accracy = accuracy_score(y_test, y_pred)</span>
+<span class="c1"># orchest.output(test_accracy, name=&quot;logistic-regression-accuracy&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -924,11 +870,11 @@ document.write(`
 <h3>collect-result<a class="headerlink" href="#collect-result" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">orchest</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">orchest</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;unnamed&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">30</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import orchest</span>
+<span class="c1"># data = orchest.get_inputs()</span>
+<span class="c1"># for name, value in data.items():</span>
+<span class="c1">#     if name != &quot;unnamed&quot;:</span>
+<span class="c1">#         print(f&quot;\n{name:30} {value}&quot;)</span>
 </pre></div>
 </div>
 </div>
