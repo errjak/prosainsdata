@@ -1,0 +1,1869 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Kolaborasi Memprediksi Saham Perusahaan Bukalapak &#8212; Prosainsdata</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tugas Kolaborasi';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dio.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/dio.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Tugas Proyek Sains Data
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Tugas 1 (Crawling Data dari Twitter Dengan Kata Kunci Ridwan Kamil)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks2.html">Tugas 1 (Crawling Data dari Portal Berita detik.com)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks3.html">Tugas 1 (Crawling Data dari Portal Tugas Akhir Trunojoyo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks4.html">Tugas 2 (Membuat Pipelines beserta deskripsi)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks5.html">Pertemuan 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks6.html">Tugas 3 Crawling Data PTA dengan Label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks7.html">UTS - Klasifikasi terhadap data abstrak prodi teknik informatika pta.trunojoyo.ac.id dengan menggunakan model klasifikasi naïve bayes dan KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks8.html">Tugas 4 Pagerank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks9.html">Tugas 5 (LSA Topic Modelling)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/errjak/prosainsdata/blob/gh-pages/_sources/Tugas Kolaborasi.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/errjak/prosainsdata" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/errjak/prosainsdata/issues/new?title=Issue%20on%20page%20%2FTugas Kolaborasi.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Tugas Kolaborasi.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tugas Kolaborasi Memprediksi Saham Perusahaan Bukalapak</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">Read Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data-with-minmaxscaler">Preprocessing Data With MinMaxScaler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduksi-dimensi-dengan-pca">Reduksi Dimensi dengan PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-naive-bayess">Model Naive Bayess</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-decision-tree">Model Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-mlp">Model MLP</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="tugas-kolaborasi-memprediksi-saham-perusahaan-bukalapak">
+<h1>Tugas Kolaborasi Memprediksi Saham Perusahaan Bukalapak<a class="headerlink" href="#tugas-kolaborasi-memprediksi-saham-perusahaan-bukalapak" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Dio Adya Wicaksono - 200411100066 (Ketua)</p></li>
+<li><p>Dimas Mahardika - 200411100093 (Anggota)</p></li>
+</ol>
+<p>Link Github : <a class="github reference external" href="https://github.com/errjak/uaspsd">errjak/uaspsd</a></p>
+<div class="section" id="read-data">
+<h2>Read Data<a class="headerlink" href="#read-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;https://raw.githubusercontent.com/errjak/dataset/main/BUKA.JK.csv&#39;</span><span class="p">)</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-67adafe9-7a69-4139-bcd8-17a866ec7e9e">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Adj Close</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-06-15</td>
+      <td>272.0</td>
+      <td>278.0</td>
+      <td>266.0</td>
+      <td>278.0</td>
+      <td>278.0</td>
+      <td>275652400</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-06-16</td>
+      <td>284.0</td>
+      <td>290.0</td>
+      <td>274.0</td>
+      <td>278.0</td>
+      <td>278.0</td>
+      <td>372853400</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-06-17</td>
+      <td>274.0</td>
+      <td>284.0</td>
+      <td>272.0</td>
+      <td>284.0</td>
+      <td>284.0</td>
+      <td>290985700</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-06-20</td>
+      <td>280.0</td>
+      <td>286.0</td>
+      <td>274.0</td>
+      <td>284.0</td>
+      <td>284.0</td>
+      <td>172441200</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-06-21</td>
+      <td>286.0</td>
+      <td>300.0</td>
+      <td>282.0</td>
+      <td>298.0</td>
+      <td>298.0</td>
+      <td>423336400</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>242</th>
+      <td>2023-06-08</td>
+      <td>214.0</td>
+      <td>220.0</td>
+      <td>208.0</td>
+      <td>212.0</td>
+      <td>212.0</td>
+      <td>209435400</td>
+    </tr>
+    <tr>
+      <th>243</th>
+      <td>2023-06-09</td>
+      <td>216.0</td>
+      <td>220.0</td>
+      <td>212.0</td>
+      <td>216.0</td>
+      <td>216.0</td>
+      <td>235016600</td>
+    </tr>
+    <tr>
+      <th>244</th>
+      <td>2023-06-12</td>
+      <td>216.0</td>
+      <td>224.0</td>
+      <td>214.0</td>
+      <td>216.0</td>
+      <td>216.0</td>
+      <td>223424400</td>
+    </tr>
+    <tr>
+      <th>245</th>
+      <td>2023-06-13</td>
+      <td>216.0</td>
+      <td>224.0</td>
+      <td>206.0</td>
+      <td>210.0</td>
+      <td>210.0</td>
+      <td>256715100</td>
+    </tr>
+    <tr>
+      <th>246</th>
+      <td>2023-06-14</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>208.0</td>
+      <td>208.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>247 rows × 7 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-67adafe9-7a69-4139-bcd8-17a866ec7e9e')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-67adafe9-7a69-4139-bcd8-17a866ec7e9e button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-67adafe9-7a69-4139-bcd8-17a866ec7e9e');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ambil kolom date dan close saja untuk memprediksi harga saham</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Close&#39;</span><span class="p">]]</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-0201a403-4686-49e7-a4b1-24e1ebc7c229">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Close</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-06-15</td>
+      <td>278.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-06-16</td>
+      <td>278.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-06-17</td>
+      <td>284.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-06-20</td>
+      <td>284.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-06-21</td>
+      <td>298.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>242</th>
+      <td>2023-06-08</td>
+      <td>212.0</td>
+    </tr>
+    <tr>
+      <th>243</th>
+      <td>2023-06-09</td>
+      <td>216.0</td>
+    </tr>
+    <tr>
+      <th>244</th>
+      <td>2023-06-12</td>
+      <td>216.0</td>
+    </tr>
+    <tr>
+      <th>245</th>
+      <td>2023-06-13</td>
+      <td>210.0</td>
+    </tr>
+    <tr>
+      <th>246</th>
+      <td>2023-06-14</td>
+      <td>208.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>247 rows × 2 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0201a403-4686-49e7-a4b1-24e1ebc7c229')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-0201a403-4686-49e7-a4b1-24e1ebc7c229 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-0201a403-4686-49e7-a4b1-24e1ebc7c229');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(247, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">split_sequence</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)):</span>
+        <span class="c1"># find the end of this pattern</span>
+        <span class="n">end_ix</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n_steps</span>
+        <span class="c1"># check if we are beyond the sequence</span>
+        <span class="k">if</span> <span class="n">end_ix</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="c1"># gather input and output parts of the pattern</span>
+        <span class="n">seq_x</span><span class="p">,</span> <span class="n">seq_y</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">end_ix</span><span class="p">],</span> <span class="n">sequence</span><span class="p">[</span><span class="n">end_ix</span><span class="p">]</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq_x</span><span class="p">)</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq_y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define input sequence from bukalapak.csv</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+<span class="c1"># choose a number of time steps</span>
+<span class="n">n_steps</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="c1"># split into samples</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">split_sequence</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">)</span>
+
+<span class="c1"># show each sample</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[278. 278. 284.] 284.0
+[278. 284. 284.] 298.0
+[284. 284. 298.] 286.0
+[284. 298. 286.] 280.0
+[298. 286. 280.] 288.0
+[286. 280. 288.] 284.0
+[280. 288. 284.] 272.0
+[288. 284. 272.] 264.0
+[284. 272. 264.] 282.0
+[272. 264. 282.] 266.0
+[264. 282. 266.] 256.0
+[282. 266. 256.] 256.0
+[266. 256. 256.] 252.0
+[256. 256. 252.] 254.0
+[256. 252. 254.] 258.0
+[252. 254. 258.] 256.0
+[254. 258. 256.] 256.0
+[258. 256. 256.] 252.0
+[256. 256. 252.] 252.0
+[256. 252. 252.] 254.0
+[252. 252. 254.] 256.0
+[252. 254. 256.] 268.0
+[254. 256. 268.] 288.0
+[256. 268. 288.] 280.0
+[268. 288. 280.] 296.0
+[288. 280. 296.] 282.0
+[280. 296. 282.] 280.0
+[296. 282. 280.] 296.0
+[282. 280. 296.] 300.0
+[280. 296. 300.] 294.0
+[296. 300. 294.] 292.0
+[300. 294. 292.] 298.0
+[294. 292. 298.] 322.0
+[292. 298. 322.] 332.0
+[298. 322. 332.] 318.0
+[322. 332. 318.] 310.0
+[332. 318. 310.] 304.0
+[318. 310. 304.] 308.0
+[310. 304. 308.] 320.0
+[304. 308. 320.] 330.0
+[308. 320. 330.] 334.0
+[320. 330. 334.] 332.0
+[330. 334. 332.] 332.0
+[334. 332. 332.] 334.0
+[332. 332. 334.] 314.0
+[332. 334. 314.] 310.0
+[334. 314. 310.] 318.0
+[314. 310. 318.] 322.0
+[310. 318. 322.] 316.0
+[318. 322. 316.] 294.0
+[322. 316. 294.] 304.0
+[316. 294. 304.] 300.0
+[294. 304. 300.] 292.0
+[304. 300. 292.] 284.0
+[300. 292. 284.] 284.0
+[292. 284. 284.] 282.0
+[284. 284. 282.] 278.0
+[284. 282. 278.] 292.0
+[282. 278. 292.] 290.0
+[278. 292. 290.] 290.0
+[292. 290. 290.] 290.0
+[290. 290. 290.] 284.0
+[290. 290. 284.] 284.0
+[290. 284. 284.] 282.0
+[284. 284. 282.] 282.0
+[284. 282. 282.] 284.0
+[282. 282. 284.] 284.0
+[282. 284. 284.] 284.0
+[284. 284. 284.] 280.0
+[284. 284. 280.] 274.0
+[284. 280. 274.] 286.0
+[280. 274. 286.] 280.0
+[274. 286. 280.] 274.0
+[286. 280. 274.] 272.0
+[280. 274. 272.] 270.0
+[274. 272. 270.] 274.0
+[272. 270. 274.] 276.0
+[270. 274. 276.] 278.0
+[274. 276. 278.] 272.0
+[276. 278. 272.] 270.0
+[278. 272. 270.] 266.0
+[272. 270. 266.] 258.0
+[270. 266. 258.] 260.0
+[266. 258. 260.] 254.0
+[258. 260. 254.] 250.0
+[260. 254. 250.] 254.0
+[254. 250. 254.] 258.0
+[250. 254. 258.] 262.0
+[254. 258. 262.] 256.0
+[258. 262. 256.] 260.0
+[262. 256. 260.] 268.0
+[256. 260. 268.] 286.0
+[260. 268. 286.] 284.0
+[268. 286. 284.] 276.0
+[286. 284. 276.] 276.0
+[284. 276. 276.] 274.0
+[276. 276. 274.] 276.0
+[276. 274. 276.] 280.0
+[274. 276. 280.] 284.0
+[276. 280. 284.] 278.0
+[280. 284. 278.] 280.0
+[284. 278. 280.] 292.0
+[278. 280. 292.] 284.0
+[280. 292. 284.] 312.0
+[292. 284. 312.] 308.0
+[284. 312. 308.] 310.0
+[312. 308. 310.] 312.0
+[308. 310. 312.] 310.0
+[310. 312. 310.] 312.0
+[312. 310. 312.] 300.0
+[310. 312. 300.] 304.0
+[312. 300. 304.] 302.0
+[300. 304. 302.] 302.0
+[304. 302. 302.] 300.0
+[302. 302. 300.] 280.0
+[302. 300. 280.] 276.0
+[300. 280. 276.] 286.0
+[280. 276. 286.] 280.0
+[276. 286. 280.] 274.0
+[286. 280. 274.] 258.0
+[280. 274. 258.] 268.0
+[274. 258. 268.] 262.0
+[258. 268. 262.] 262.0
+[268. 262. 262.] 266.0
+[262. 262. 266.] 262.0
+[262. 266. 262.] 280.0
+[266. 262. 280.] 284.0
+[262. 280. 284.] 280.0
+[280. 284. 280.] 268.0
+[284. 280. 268.] 264.0
+[280. 268. 264.] 254.0
+[268. 264. 254.] 258.0
+[264. 254. 258.] 264.0
+[254. 258. 264.] 270.0
+[258. 264. 270.] 264.0
+[264. 270. 264.] 270.0
+[270. 264. 270.] 268.0
+[264. 270. 268.] 270.0
+[270. 268. 270.] 262.0
+[268. 270. 262.] 264.0
+[270. 262. 264.] 268.0
+[262. 264. 268.] 264.0
+[264. 268. 264.] 256.0
+[268. 264. 256.] 254.0
+[264. 256. 254.] 262.0
+[256. 254. 262.] 260.0
+[254. 262. 260.] 262.0
+[262. 260. 262.] 266.0
+[260. 262. 266.] 264.0
+[262. 266. 264.] 262.0
+[266. 264. 262.] 262.0
+[264. 262. 262.] 258.0
+[262. 262. 258.] 260.0
+[262. 258. 260.] 258.0
+[258. 260. 258.] 278.0
+[260. 258. 278.] 286.0
+[258. 278. 286.] 290.0
+[278. 286. 290.] 290.0
+[286. 290. 290.] 294.0
+[290. 290. 294.] 290.0
+[290. 294. 290.] 282.0
+[294. 290. 282.] 300.0
+[290. 282. 300.] 304.0
+[282. 300. 304.] 298.0
+[300. 304. 298.] 300.0
+[304. 298. 300.] 300.0
+[298. 300. 300.] 288.0
+[300. 300. 288.] 284.0
+[300. 288. 284.] 288.0
+[288. 284. 288.] 286.0
+[284. 288. 286.] 274.0
+[288. 286. 274.] 274.0
+[286. 274. 274.] 270.0
+[274. 274. 270.] 264.0
+[274. 270. 264.] 268.0
+[270. 264. 268.] 264.0
+[264. 268. 264.] 262.0
+[268. 264. 262.] 264.0
+[264. 262. 264.] 262.0
+[262. 264. 262.] 262.0
+[264. 262. 262.] 258.0
+[262. 262. 258.] 264.0
+[262. 258. 264.] 266.0
+[258. 264. 266.] 260.0
+[264. 266. 260.] 260.0
+[266. 260. 260.] 260.0
+[260. 260. 260.] 262.0
+[260. 260. 262.] 260.0
+[260. 262. 260.] 258.0
+[262. 260. 258.] 250.0
+[260. 258. 250.] 250.0
+[258. 250. 250.] 234.0
+[250. 250. 234.] 234.0
+[250. 234. 234.] 222.0
+[234. 234. 222.] 226.0
+[234. 222. 226.] 236.0
+[222. 226. 236.] 234.0
+[226. 236. 234.] 268.0
+[236. 234. 268.] 258.0
+[234. 268. 258.] 248.0
+[268. 258. 248.] 248.0
+[258. 248. 248.] 240.0
+[248. 248. 240.] 238.0
+[248. 240. 238.] 228.0
+[240. 238. 228.] 232.0
+[238. 228. 232.] 234.0
+[228. 232. 234.] 236.0
+[232. 234. 236.] 232.0
+[234. 236. 232.] 234.0
+[236. 232. 234.] 234.0
+[232. 234. 234.] 232.0
+[234. 234. 232.] 228.0
+[234. 232. 228.] 228.0
+[232. 228. 228.] 234.0
+[228. 228. 234.] 236.0
+[228. 234. 236.] 230.0
+[234. 236. 230.] 236.0
+[236. 230. 236.] 240.0
+[230. 236. 240.] 238.0
+[236. 240. 238.] 234.0
+[240. 238. 234.] 232.0
+[238. 234. 232.] 230.0
+[234. 232. 230.] 230.0
+[232. 230. 230.] 226.0
+[230. 230. 226.] 212.0
+[230. 226. 212.] 206.0
+[226. 212. 206.] 199.0
+[212. 206. 199.] 200.0
+[206. 199. 200.] 206.0
+[199. 200. 206.] 198.0
+[200. 206. 198.] 199.0
+[206. 198. 199.] 197.0
+[198. 199. 197.] 199.0
+[199. 197. 199.] 204.0
+[197. 199. 204.] 216.0
+[199. 204. 216.] 212.0
+[204. 216. 212.] 204.0
+[216. 212. 204.] 208.0
+[212. 204. 208.] 214.0
+[204. 208. 214.] 212.0
+[208. 214. 212.] 216.0
+[214. 212. 216.] 216.0
+[212. 216. 216.] 210.0
+[216. 216. 210.] 208.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preprocessing-data-with-minmaxscaler">
+<h2>Preprocessing Data With MinMaxScaler<a class="headerlink" href="#preprocessing-data-with-minmaxscaler" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prepoceesing data dengan MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.59124088, 0.59124088, 0.6350365 ],
+       [0.59124088, 0.6350365 , 0.6350365 ],
+       [0.6350365 , 0.6350365 , 0.73722628],
+       [0.6350365 , 0.73722628, 0.64963504],
+       [0.73722628, 0.64963504, 0.60583942],
+       [0.64963504, 0.60583942, 0.66423358],
+       [0.60583942, 0.66423358, 0.6350365 ],
+       [0.66423358, 0.6350365 , 0.54744526],
+       [0.6350365 , 0.54744526, 0.48905109],
+       [0.54744526, 0.48905109, 0.62043796],
+       [0.48905109, 0.62043796, 0.50364964],
+       [0.62043796, 0.50364964, 0.43065693],
+       [0.50364964, 0.43065693, 0.43065693],
+       [0.43065693, 0.43065693, 0.40145985],
+       [0.43065693, 0.40145985, 0.41605839],
+       [0.40145985, 0.41605839, 0.44525547],
+       [0.41605839, 0.44525547, 0.43065693],
+       [0.44525547, 0.43065693, 0.43065693],
+       [0.43065693, 0.43065693, 0.40145985],
+       [0.43065693, 0.40145985, 0.40145985],
+       [0.40145985, 0.40145985, 0.41605839],
+       [0.40145985, 0.41605839, 0.43065693],
+       [0.41605839, 0.43065693, 0.51824818],
+       [0.43065693, 0.51824818, 0.66423358],
+       [0.51824818, 0.66423358, 0.60583942],
+       [0.66423358, 0.60583942, 0.72262774],
+       [0.60583942, 0.72262774, 0.62043796],
+       [0.72262774, 0.62043796, 0.60583942],
+       [0.62043796, 0.60583942, 0.72262774],
+       [0.60583942, 0.72262774, 0.75182482],
+       [0.72262774, 0.75182482, 0.7080292 ],
+       [0.75182482, 0.7080292 , 0.69343066],
+       [0.7080292 , 0.69343066, 0.73722628],
+       [0.69343066, 0.73722628, 0.91240876],
+       [0.73722628, 0.91240876, 0.98540146],
+       [0.91240876, 0.98540146, 0.88321168],
+       [0.98540146, 0.88321168, 0.82481752],
+       [0.88321168, 0.82481752, 0.7810219 ],
+       [0.82481752, 0.7810219 , 0.81021898],
+       [0.7810219 , 0.81021898, 0.89781022],
+       [0.81021898, 0.89781022, 0.97080292],
+       [0.89781022, 0.97080292, 1.        ],
+       [0.97080292, 1.        , 0.98540146],
+       [1.        , 0.98540146, 0.98540146],
+       [0.98540146, 0.98540146, 1.        ],
+       [0.98540146, 1.        , 0.8540146 ],
+       [1.        , 0.8540146 , 0.82481752],
+       [0.8540146 , 0.82481752, 0.88321168],
+       [0.82481752, 0.88321168, 0.91240876],
+       [0.88321168, 0.91240876, 0.86861314],
+       [0.91240876, 0.86861314, 0.7080292 ],
+       [0.86861314, 0.7080292 , 0.7810219 ],
+       [0.7080292 , 0.7810219 , 0.75182482],
+       [0.7810219 , 0.75182482, 0.69343066],
+       [0.75182482, 0.69343066, 0.6350365 ],
+       [0.69343066, 0.6350365 , 0.6350365 ],
+       [0.6350365 , 0.6350365 , 0.62043796],
+       [0.6350365 , 0.62043796, 0.59124088],
+       [0.62043796, 0.59124088, 0.69343066],
+       [0.59124088, 0.69343066, 0.67883212],
+       [0.69343066, 0.67883212, 0.67883212],
+       [0.67883212, 0.67883212, 0.67883212],
+       [0.67883212, 0.67883212, 0.6350365 ],
+       [0.67883212, 0.6350365 , 0.6350365 ],
+       [0.6350365 , 0.6350365 , 0.62043796],
+       [0.6350365 , 0.62043796, 0.62043796],
+       [0.62043796, 0.62043796, 0.6350365 ],
+       [0.62043796, 0.6350365 , 0.6350365 ],
+       [0.6350365 , 0.6350365 , 0.6350365 ],
+       [0.6350365 , 0.6350365 , 0.60583942],
+       [0.6350365 , 0.60583942, 0.5620438 ],
+       [0.60583942, 0.5620438 , 0.64963504],
+       [0.5620438 , 0.64963504, 0.60583942],
+       [0.64963504, 0.60583942, 0.5620438 ],
+       [0.60583942, 0.5620438 , 0.54744526],
+       [0.5620438 , 0.54744526, 0.53284672],
+       [0.54744526, 0.53284672, 0.5620438 ],
+       [0.53284672, 0.5620438 , 0.57664234],
+       [0.5620438 , 0.57664234, 0.59124088],
+       [0.57664234, 0.59124088, 0.54744526],
+       [0.59124088, 0.54744526, 0.53284672],
+       [0.54744526, 0.53284672, 0.50364964],
+       [0.53284672, 0.50364964, 0.44525547],
+       [0.50364964, 0.44525547, 0.45985401],
+       [0.44525547, 0.45985401, 0.41605839],
+       [0.45985401, 0.41605839, 0.38686131],
+       [0.41605839, 0.38686131, 0.41605839],
+       [0.38686131, 0.41605839, 0.44525547],
+       [0.41605839, 0.44525547, 0.47445255],
+       [0.44525547, 0.47445255, 0.43065693],
+       [0.47445255, 0.43065693, 0.45985401],
+       [0.43065693, 0.45985401, 0.51824818],
+       [0.45985401, 0.51824818, 0.64963504],
+       [0.51824818, 0.64963504, 0.6350365 ],
+       [0.64963504, 0.6350365 , 0.57664234],
+       [0.6350365 , 0.57664234, 0.57664234],
+       [0.57664234, 0.57664234, 0.5620438 ],
+       [0.57664234, 0.5620438 , 0.57664234],
+       [0.5620438 , 0.57664234, 0.60583942],
+       [0.57664234, 0.60583942, 0.6350365 ],
+       [0.60583942, 0.6350365 , 0.59124088],
+       [0.6350365 , 0.59124088, 0.60583942],
+       [0.59124088, 0.60583942, 0.69343066],
+       [0.60583942, 0.69343066, 0.6350365 ],
+       [0.69343066, 0.6350365 , 0.83941606],
+       [0.6350365 , 0.83941606, 0.81021898],
+       [0.83941606, 0.81021898, 0.82481752],
+       [0.81021898, 0.82481752, 0.83941606],
+       [0.82481752, 0.83941606, 0.82481752],
+       [0.83941606, 0.82481752, 0.83941606],
+       [0.82481752, 0.83941606, 0.75182482],
+       [0.83941606, 0.75182482, 0.7810219 ],
+       [0.75182482, 0.7810219 , 0.76642336],
+       [0.7810219 , 0.76642336, 0.76642336],
+       [0.76642336, 0.76642336, 0.75182482],
+       [0.76642336, 0.75182482, 0.60583942],
+       [0.75182482, 0.60583942, 0.57664234],
+       [0.60583942, 0.57664234, 0.64963504],
+       [0.57664234, 0.64963504, 0.60583942],
+       [0.64963504, 0.60583942, 0.5620438 ],
+       [0.60583942, 0.5620438 , 0.44525547],
+       [0.5620438 , 0.44525547, 0.51824818],
+       [0.44525547, 0.51824818, 0.47445255],
+       [0.51824818, 0.47445255, 0.47445255],
+       [0.47445255, 0.47445255, 0.50364964],
+       [0.47445255, 0.50364964, 0.47445255],
+       [0.50364964, 0.47445255, 0.60583942],
+       [0.47445255, 0.60583942, 0.6350365 ],
+       [0.60583942, 0.6350365 , 0.60583942],
+       [0.6350365 , 0.60583942, 0.51824818],
+       [0.60583942, 0.51824818, 0.48905109],
+       [0.51824818, 0.48905109, 0.41605839],
+       [0.48905109, 0.41605839, 0.44525547],
+       [0.41605839, 0.44525547, 0.48905109],
+       [0.44525547, 0.48905109, 0.53284672],
+       [0.48905109, 0.53284672, 0.48905109],
+       [0.53284672, 0.48905109, 0.53284672],
+       [0.48905109, 0.53284672, 0.51824818],
+       [0.53284672, 0.51824818, 0.53284672],
+       [0.51824818, 0.53284672, 0.47445255],
+       [0.53284672, 0.47445255, 0.48905109],
+       [0.47445255, 0.48905109, 0.51824818],
+       [0.48905109, 0.51824818, 0.48905109],
+       [0.51824818, 0.48905109, 0.43065693],
+       [0.48905109, 0.43065693, 0.41605839],
+       [0.43065693, 0.41605839, 0.47445255],
+       [0.41605839, 0.47445255, 0.45985401],
+       [0.47445255, 0.45985401, 0.47445255],
+       [0.45985401, 0.47445255, 0.50364964],
+       [0.47445255, 0.50364964, 0.48905109],
+       [0.50364964, 0.48905109, 0.47445255],
+       [0.48905109, 0.47445255, 0.47445255],
+       [0.47445255, 0.47445255, 0.44525547],
+       [0.47445255, 0.44525547, 0.45985401],
+       [0.44525547, 0.45985401, 0.44525547],
+       [0.45985401, 0.44525547, 0.59124088],
+       [0.44525547, 0.59124088, 0.64963504],
+       [0.59124088, 0.64963504, 0.67883212],
+       [0.64963504, 0.67883212, 0.67883212],
+       [0.67883212, 0.67883212, 0.7080292 ],
+       [0.67883212, 0.7080292 , 0.67883212],
+       [0.7080292 , 0.67883212, 0.62043796],
+       [0.67883212, 0.62043796, 0.75182482],
+       [0.62043796, 0.75182482, 0.7810219 ],
+       [0.75182482, 0.7810219 , 0.73722628],
+       [0.7810219 , 0.73722628, 0.75182482],
+       [0.73722628, 0.75182482, 0.75182482],
+       [0.75182482, 0.75182482, 0.66423358],
+       [0.75182482, 0.66423358, 0.6350365 ],
+       [0.66423358, 0.6350365 , 0.66423358],
+       [0.6350365 , 0.66423358, 0.64963504],
+       [0.66423358, 0.64963504, 0.5620438 ],
+       [0.64963504, 0.5620438 , 0.5620438 ],
+       [0.5620438 , 0.5620438 , 0.53284672],
+       [0.5620438 , 0.53284672, 0.48905109],
+       [0.53284672, 0.48905109, 0.51824818],
+       [0.48905109, 0.51824818, 0.48905109],
+       [0.51824818, 0.48905109, 0.47445255],
+       [0.48905109, 0.47445255, 0.48905109],
+       [0.47445255, 0.48905109, 0.47445255],
+       [0.48905109, 0.47445255, 0.47445255],
+       [0.47445255, 0.47445255, 0.44525547],
+       [0.47445255, 0.44525547, 0.48905109],
+       [0.44525547, 0.48905109, 0.50364964],
+       [0.48905109, 0.50364964, 0.45985401],
+       [0.50364964, 0.45985401, 0.45985401],
+       [0.45985401, 0.45985401, 0.45985401],
+       [0.45985401, 0.45985401, 0.47445255],
+       [0.45985401, 0.47445255, 0.45985401],
+       [0.47445255, 0.45985401, 0.44525547],
+       [0.45985401, 0.44525547, 0.38686131],
+       [0.44525547, 0.38686131, 0.38686131],
+       [0.38686131, 0.38686131, 0.27007299],
+       [0.38686131, 0.27007299, 0.27007299],
+       [0.27007299, 0.27007299, 0.18248175],
+       [0.27007299, 0.18248175, 0.21167883],
+       [0.18248175, 0.21167883, 0.28467153],
+       [0.21167883, 0.28467153, 0.27007299],
+       [0.28467153, 0.27007299, 0.51824818],
+       [0.27007299, 0.51824818, 0.44525547],
+       [0.51824818, 0.44525547, 0.37226277],
+       [0.44525547, 0.37226277, 0.37226277],
+       [0.37226277, 0.37226277, 0.31386861],
+       [0.37226277, 0.31386861, 0.29927007],
+       [0.31386861, 0.29927007, 0.22627737],
+       [0.29927007, 0.22627737, 0.25547445],
+       [0.22627737, 0.25547445, 0.27007299],
+       [0.25547445, 0.27007299, 0.28467153],
+       [0.27007299, 0.28467153, 0.25547445],
+       [0.28467153, 0.25547445, 0.27007299],
+       [0.25547445, 0.27007299, 0.27007299],
+       [0.27007299, 0.27007299, 0.25547445],
+       [0.27007299, 0.25547445, 0.22627737],
+       [0.25547445, 0.22627737, 0.22627737],
+       [0.22627737, 0.22627737, 0.27007299],
+       [0.22627737, 0.27007299, 0.28467153],
+       [0.27007299, 0.28467153, 0.24087591],
+       [0.28467153, 0.24087591, 0.28467153],
+       [0.24087591, 0.28467153, 0.31386861],
+       [0.28467153, 0.31386861, 0.29927007],
+       [0.31386861, 0.29927007, 0.27007299],
+       [0.29927007, 0.27007299, 0.25547445],
+       [0.27007299, 0.25547445, 0.24087591],
+       [0.25547445, 0.24087591, 0.24087591],
+       [0.24087591, 0.24087591, 0.21167883],
+       [0.24087591, 0.21167883, 0.10948905],
+       [0.21167883, 0.10948905, 0.06569343],
+       [0.10948905, 0.06569343, 0.01459854],
+       [0.06569343, 0.01459854, 0.02189781],
+       [0.01459854, 0.02189781, 0.06569343],
+       [0.02189781, 0.06569343, 0.00729927],
+       [0.06569343, 0.00729927, 0.01459854],
+       [0.00729927, 0.01459854, 0.        ],
+       [0.01459854, 0.        , 0.01459854],
+       [0.        , 0.01459854, 0.05109489],
+       [0.01459854, 0.05109489, 0.13868613],
+       [0.05109489, 0.13868613, 0.10948905],
+       [0.13868613, 0.10948905, 0.05109489],
+       [0.10948905, 0.05109489, 0.08029197],
+       [0.05109489, 0.08029197, 0.12408759],
+       [0.08029197, 0.12408759, 0.10948905],
+       [0.12408759, 0.10948905, 0.13868613],
+       [0.10948905, 0.13868613, 0.13868613],
+       [0.13868613, 0.13868613, 0.09489051]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reduksi-dimensi-dengan-pca">
+<h2>Reduksi Dimensi dengan PCA<a class="headerlink" href="#reduksi-dimensi-dengan-pca" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reduksi dimensi dengan PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.14820066],
+       [-0.17365776],
+       [-0.25790507],
+       [-0.26652927],
+       [-0.24858149],
+       [-0.2069569 ],
+       [-0.19896549],
+       [-0.16456368],
+       [-0.06312635],
+       [-0.05532915],
+       [-0.03065421],
+       [ 0.00451755],
+       [ 0.11363667],
+       [ 0.17224354],
+       [ 0.18075232],
+       [ 0.17201404],
+       [ 0.15516893],
+       [ 0.14698198],
+       [ 0.17224354],
+       [ 0.18921494],
+       [ 0.19742498],
+       [ 0.18047666],
+       [ 0.11287892],
+       [-0.0309978 ],
+       [-0.13202229],
+       [-0.2491437 ],
+       [-0.22444567],
+       [-0.22327376],
+       [-0.22413472],
+       [-0.30060924],
+       [-0.3588834 ],
+       [-0.34163633],
+       [-0.33352951],
+       [-0.45220171],
+       [-0.62135219],
+       [-0.70457828],
+       [-0.65300954],
+       [-0.53532459],
+       [-0.49344742],
+       [-0.53618555],
+       [-0.6460855 ],
+       [-0.75545721],
+       [-0.80564762],
+       [-0.81383457],
+       [-0.81396087],
+       [-0.73782038],
+       [-0.64437446],
+       [-0.57789027],
+       [-0.61208566],
+       [-0.63701451],
+       [-0.53514125],
+       [-0.45910266],
+       [-0.39290633],
+       [-0.38376609],
+       [-0.29930016],
+       [-0.23201205],
+       [-0.19020412],
+       [-0.16479318],
+       [-0.19872379],
+       [-0.23298842],
+       [-0.28285701],
+       [-0.27452068],
+       [-0.24913282],
+       [-0.22367572],
+       [-0.19020412],
+       [-0.18171842],
+       [-0.18184471],
+       [-0.19033041],
+       [-0.19866674],
+       [-0.1817415 ],
+       [-0.13938225],
+       [-0.1480282 ],
+       [-0.14854557],
+       [-0.14771857],
+       [-0.08878987],
+       [-0.04683257],
+       [-0.04693578],
+       [-0.06403348],
+       [-0.09765445],
+       [-0.08908862],
+       [-0.06350523],
+       [-0.01308531],
+       [ 0.04607289],
+       [ 0.08822573],
+       [ 0.13847319],
+       [ 0.17251921],
+       [ 0.19757435],
+       [ 0.18035037],
+       [ 0.12978107],
+       [ 0.12152487],
+       [ 0.11338409],
+       [ 0.08757119],
+       [-0.03920783],
+       [-0.14046183],
+       [-0.17315259],
+       [-0.13087346],
+       [-0.08906554],
+       [-0.08904246],
+       [-0.10611707],
+       [-0.14835003],
+       [-0.15660623],
+       [-0.1562844 ],
+       [-0.19053683],
+       [-0.21593689],
+       [-0.35048871],
+       [-0.41901798],
+       [-0.52721777],
+       [-0.52749343],
+       [-0.53585284],
+       [-0.54416609],
+       [-0.49353975],
+       [-0.46788711],
+       [-0.42637793],
+       [-0.43456488],
+       [-0.41776594],
+       [-0.32465405],
+       [-0.21453548],
+       [-0.1565139 ],
+       [-0.1568819 ],
+       [-0.14771857],
+       [-0.02955154],
+       [ 0.02102995],
+       [ 0.07067992],
+       [ 0.05445539],
+       [ 0.06253913],
+       [ 0.06249296],
+       [-0.01337185],
+       [-0.08999575],
+       [-0.16506885],
+       [-0.11399439],
+       [-0.0294823 ],
+       [ 0.07982016],
+       [ 0.12199608],
+       [ 0.12131846],
+       [ 0.05380084],
+       [ 0.02872262],
+       [ 0.00378288],
+       [ 0.01179738],
+       [-0.01318852],
+       [ 0.02051258],
+       [ 0.03765644],
+       [ 0.04559081],
+       [ 0.03720832],
+       [ 0.07135754],
+       [ 0.13043562],
+       [ 0.13841615],
+       [ 0.12127229],
+       [ 0.08795007],
+       [ 0.07087546],
+       [ 0.05403035],
+       [ 0.05430601],
+       [ 0.07112804],
+       [ 0.0963896 ],
+       [ 0.10489839],
+       [ 0.12154796],
+       [ 0.03707115],
+       [-0.07330001],
+       [-0.20753132],
+       [-0.25784803],
+       [-0.29144592],
+       [-0.29149208],
+       [-0.25734286],
+       [-0.28289097],
+       [-0.34284221],
+       [-0.40945269],
+       [-0.40913086],
+       [-0.39260758],
+       [-0.3501682 ],
+       [-0.28232876],
+       [-0.23226463],
+       [-0.22410076],
+       [-0.181512  ],
+       [-0.12226147],
+       [-0.05531827],
+       [-0.01295902],
+       [ 0.0122455 ],
+       [ 0.03720832],
+       [ 0.04596969],
+       [ 0.06266542],
+       [ 0.07097867],
+       [ 0.07112804],
+       [ 0.0963896 ],
+       [ 0.08797315],
+       [ 0.07072608],
+       [ 0.06261926],
+       [ 0.07974003],
+       [ 0.10474901],
+       [ 0.09628639],
+       [ 0.09626331],
+       [ 0.1048753 ],
+       [ 0.15554781],
+       [ 0.19782694],
+       [ 0.29887319],
+       [ 0.3667588 ],
+       [ 0.48422512],
+       [ 0.51821409],
+       [ 0.50894756],
+       [ 0.45830902],
+       [ 0.28124857],
+       [ 0.18764107],
+       [ 0.13066512],
+       [ 0.21477526],
+       [ 0.29030736],
+       [ 0.33271279],
+       [ 0.41685689],
+       [ 0.45069648],
+       [ 0.46694409],
+       [ 0.43332312],
+       [ 0.43342633],
+       [ 0.43359879],
+       [ 0.44178574],
+       [ 0.44191203],
+       [ 0.46732297],
+       [ 0.4926307 ],
+       [ 0.48391549],
+       [ 0.44999577],
+       [ 0.44188895],
+       [ 0.43362187],
+       [ 0.41624851],
+       [ 0.38273074],
+       [ 0.39146903],
+       [ 0.42523938],
+       [ 0.45886035],
+       [ 0.47568238],
+       [ 0.50094394],
+       [ 0.57715367],
+       [ 0.67861409],
+       [ 0.79204464],
+       [ 0.84252227],
+       [ 0.8420687 ],
+       [ 0.84629391],
+       [ 0.85099643],
+       [ 0.8885615 ],
+       [ 0.88441642],
+       [ 0.8631105 ],
+       [ 0.78278421],
+       [ 0.72795442],
+       [ 0.72875834],
+       [ 0.76244856],
+       [ 0.75343461],
+       [ 0.71976747],
+       [ 0.68631895],
+       [ 0.67768388],
+       [ 0.68639908]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split data train dan test</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># tampilkan shape train dan test</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(195, 1) (195,)
+(49, 1) (49,)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-naive-bayess">
+<h2>Model Naive Bayess<a class="headerlink" href="#model-naive-bayess" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># buat model naive bayes</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+
+<span class="c1"># train model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># prediksi data test</span>
+<span class="n">y_NB</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># MAPE</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span>
+<span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_NB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAPE Naive Bayes : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">mape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE Naive Bayes : 0.245
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-decision-tree">
+<h2>Model Decision Tree<a class="headerlink" href="#model-decision-tree" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># buat model decision tree</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
+
+<span class="c1"># train model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># prediksi data test</span>
+<span class="n">y_DT</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+
+<span class="c1"># MAPE</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span>
+<span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_DT</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAPE Decision Tree : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">mape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE Decision Tree : 0.062
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-mlp">
+<h2>Model MLP<a class="headerlink" href="#model-mlp" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># buat model MLP</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="kn">import</span> <span class="n">ConvergenceWarning</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">max_iter</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">0.0001</span>
+
+<span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">ConvergenceWarning</span><span class="p">,</span><span class="n">module</span><span class="o">=</span><span class="s2">&quot;sklearn&quot;</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span><span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span><span class="n">tol</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+
+    <span class="c1"># train model</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+    <span class="c1"># prediksi data test</span>
+    <span class="n">y_MLP</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># MAPE</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span>
+<span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_MLP</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAPE MLP : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">mape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE MLP : 0.147
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data">Read Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data-with-minmaxscaler">Preprocessing Data With MinMaxScaler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduksi-dimensi-dengan-pca">Reduksi Dimensi dengan PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-naive-bayess">Model Naive Bayess</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-decision-tree">Model Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-mlp">Model MLP</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dio Adya Wicaksono
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
